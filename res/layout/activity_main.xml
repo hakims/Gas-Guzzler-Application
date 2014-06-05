@@ -8,9 +8,49 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <TextView
+    <EditText
+        android:id="@+id/editText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_above="@+id/button1"
+        android:layout_alignLeft="@+id/EditText01"
+        android:layout_marginBottom="52dp"
+        android:ems="10"
+        android:hint="Odomoter reading?"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/EditText01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editText1"
+        android:layout_alignLeft="@+id/EditText02"
+        android:layout_marginBottom="50dp"
+        android:ems="10"
+        android:hint="Gallons Purchased?"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="59dp"
+        android:text="Analyze" />
+
+    <EditText
+        android:id="@+id/EditText02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/EditText01"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:ems="10"
+        android:hint="Cost?"
+        android:inputType="numberDecimal" />
 
 </RelativeLayout>
