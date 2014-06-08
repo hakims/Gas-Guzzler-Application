@@ -40,8 +40,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private static final String VEHICLE_TABLE = "vehicle";
 	private static final String VEHICLE_COL_REFILLPRICE = "fillup_price";     /// The amount paid for this single trip at the pump
 	private static final String VEHICLE_COL_REFILLAMOUNT = "fillup_amount";   /// Amount paid this single trip
-	private static final String VEHICLE_COL_PREVODOMETER = "prevodometer";	  /// Previos Odometer Reading
-	private static final String VEHICLE_COL_DATE = "Date";					  /// The Date you visited the pump
+	private static final String VEHICLE_COL_PREVODOMETER = "prevodometer";	  /// Previous Odometer Reading
+	private static final String VEHICLE_COL_DATE = "date";					  /// The Date you visited the pump
 		
 	
 	/**
@@ -66,9 +66,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		
 		
 		String sql1 = 	"CREATE TABLE " + VEHICLE_TABLE + "(" +
-						VEHICLE_COL_REFILLPRICE + " DOUBLE PRIMARY KEY AUTOINCREMENT, " + 
+						VEHICLE_COL_REFILLPRICE + " DOUBLE NOT NULL, " + 
 						VEHICLE_COL_REFILLAMOUNT + " DOUBLE NOT NULL, " + 
-						VEHICLE_COL_PREVODOMETER + " DOUBLE NOT NULL " + 
+						VEHICLE_COL_PREVODOMETER + " DOUBLE NOT NULL, " +
+						VEHICLE_COL_DATE + " STRING NOT NULL " +
 						");";
 		
 		
@@ -92,19 +93,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 	
 	
-	public void insertData (String _name, String _pin) {
+	public void insertData (String _price, String _amount, String _odometer, String _date) {
 		ContentValues values = null;
 		
 		try {
 			db.beginTransaction();
 			values = new ContentValues();
-			values.put(VEHICLE_COL_USERID, _name);
-			values.put(VEHICLE_COL_PIN, _pin);
+			values.put(VEHICLE_COL_REFILLPRICE, _price);
+			values.put(VEHICLE_COL_REFILLAMOUNT, _amount);
+			values.put(VEHICLE_COL_PREVODOMETER, _odometer);
+			values.put(VEHICLE_COL_DATE, _date);
 			db.insert(VEHICLE_TABLE, null, values);
 			values.clear();
 			db.setTransactionSuccessful();
 			db.endTransaction();
-			Log.i(getClass().getSimpleName(), _name + " inserted");
+			Log.i(getClass().getSimpleName(), _date + " inserted with Price: " + _price);
+			Log.i("TEST", "Date: " + _date + " P: " + _price + " V: " + _amount + " O: " + _odometer );
 		} catch (SQLException e) {
 			Log.e(getClass().getSimpleName(), e.getMessage());
 		}
@@ -112,7 +116,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	
 	public int getRowCount() {
 		
-		String sql = "SELECT " + VEHICLE_COL_PIN  + " FROM " + VEHICLE_TABLE;
+		String sql = "SELECT " + VEHICLE_COL_DATE  + " FROM " + VEHICLE_TABLE;
 		
 		try {
 			Cursor allRows = db.rawQuery(sql, null);
@@ -126,12 +130,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		
 	}
 	
-	public String getPin (String _name) {
+	
+	public String getPrice (String _date) {
 		
 		
-		String sql = "SELECT " + VEHICLE_COL_PIN  + " FROM " + VEHICLE_TABLE +  
-				" WHERE " + VEHICLE_COL_USERID + " = ?";
-		String[] args = {_name};	
+		String sql = "SELECT " + VEHICLE_COL_REFILLPRICE  + " FROM " + VEHICLE_TABLE +  
+				" WHERE " + VEHICLE_COL_DATE + " = ?";
+		String[] args = {_date};	
 		
 		//** Never use rawQuery
 		try {
@@ -156,10 +161,72 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		
 	}
 
+public String getVolume (String _date) {
+		
+		
+		String sql = "SELECT " + VEHICLE_COL_REFILLAMOUNT  + " FROM " + VEHICLE_TABLE +  
+				" WHERE " + VEHICLE_COL_DATE + " = ?";
+		String[] args = {_date};	
+		
+		//** Never use rawQuery
+		try {
+			Cursor allRows = db.rawQuery(sql, args);
+				
+			if (allRows.getCount() <=0) {
+				Log.i(getClass().getSimpleName(), sql);
+				return null;
+			} else {
+				allRows.moveToFirst();
+				return allRows.getString(0);
+			}
+			 
+		}catch (SQLException e) {
+			Log.e(getClass().getSimpleName(), "Unable to process SQL: " + sql);
+			return null;
+		} catch (Exception e) {
+			Log.e(getClass().getSimpleName(), "Unhandled exception SQL:" + sql);
+			return null;
+		}
+			
+		
+	}
+	
+public String getOdometer (String _date) {
+	
+	
+	String sql = "SELECT " + VEHICLE_COL_PREVODOMETER  + " FROM " + VEHICLE_TABLE +  
+			" WHERE " + VEHICLE_COL_DATE + " = ?";
+	String[] args = {_date};	
+	
+	//** Never use rawQuery
+	try {
+		Cursor allRows = db.rawQuery(sql, args);
+			
+		if (allRows.getCount() <=0) {
+			Log.i(getClass().getSimpleName(), sql);
+			return null;
+		} else {
+			allRows.moveToFirst();
+			return allRows.getString(0);
+		}
+		 
+	}catch (SQLException e) {
+		Log.e(getClass().getSimpleName(), "Unable to process SQL: " + sql);
+		return null;
+	} catch (Exception e) {
+		Log.e(getClass().getSimpleName(), "Unhandled exception SQL:" + sql);
+		return null;
+	}
+		
+	
+}
+	
 	
 	/**
 	 * Upgrades the database.
 	 */
+	
+	
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)  {
 	//*****************************************************************************************************************
