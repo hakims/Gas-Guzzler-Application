@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -9,36 +9,31 @@
     tools:context=".MainActivity" >
 
     <Button
-        android:id="@+id/NewEntryButton"
+        android:id="@+id/b_backtoOdometer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/ViewHistoryButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="26dp"
-        android:text="New Entry" />
+        android:layout_alignLeft="@+id/editText_odometer"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="36dp"
+        android:text="Back" />
 
     <Button
-        android:id="@+id/ViewHistoryButton"
+        android:id="@+id/b_toSummary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/NextEntryPageButton"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="52dp"
-        android:text="View History" />
+        android:layout_above="@+id/b_backtoOdometer"
+        android:layout_alignLeft="@+id/b_backtoOdometer"
+        android:layout_marginBottom="19dp"
+        android:text="Confirm" />
 
     <EditText
-        android:id="@+id/MainPageName"
-        android:layout_width="wrap_content"
+        android:id="@+id/VerificationName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/NewEntryButton"
+        android:layout_alignLeft="@+id/b_toSummary"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="51dp"
         android:ems="10"
         android:inputType="textPostalAddress"
-        android:text="GAS GUZZLER" >
-
-        <requestFocus />
-    </EditText>
+        android:text="Are these entries correct?" />
 
 </RelativeLayout>

@@ -9,36 +9,32 @@
     tools:context=".MainActivity" >
 
     <Button
-        android:id="@+id/NewEntryButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/ViewHistoryButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="26dp"
-        android:text="New Entry" />
-
-    <Button
-        android:id="@+id/ViewHistoryButton"
+        android:id="@+id/Back1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/NextEntryPageButton"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="52dp"
-        android:text="View History" />
+        android:text="Back" />
 
     <EditText
-        android:id="@+id/MainPageName"
+        android:id="@+id/editText_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/NewEntryButton"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="51dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
         android:ems="10"
-        android:inputType="textPostalAddress"
-        android:text="GAS GUZZLER" >
+        android:hint="Gas Price "
+        android:inputType="numberDecimal" />
 
-        <requestFocus />
-    </EditText>
+    <Button
+        android:id="@+id/Next1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Back1"
+        android:layout_alignLeft="@+id/Back1"
+        android:layout_marginBottom="32dp"
+        android:text="Next" />
 
 </RelativeLayout>
