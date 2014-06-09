@@ -8,25 +8,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <EditText
-        android:id="@+id/VerificationName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/Next2"
-        android:layout_marginTop="66dp"
-        android:ems="10"
-        android:inputType="textPostalAddress"
-        android:text="Are these entries correct?" >
 
-        <requestFocus />
-    </EditText>
 
     <Button
         android:id="@+id/b_backtoOdometer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/OdometerPageName"
+        android:layout_alignLeft="@+id/editText_odometer"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="36dp"
         android:text="Back" />
@@ -39,5 +27,16 @@
         android:layout_alignLeft="@+id/b_backtoOdometer"
         android:layout_marginBottom="19dp"
         android:text="Confirm" />
+
+    <EditText
+        android:id="@+id/VerificationName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/b_toSummary"
+        android:layout_alignParentTop="true"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        android:text="Are these entries correct?" />
+
 
 </RelativeLayout>

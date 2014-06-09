@@ -9,15 +9,15 @@
     tools:context=".MainActivity" >
 
     <EditText
-        android:id="@+id/OdometerPageName"
+        android:id="@+id/editText_odometer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/Next2"
         android:layout_marginTop="66dp"
         android:ems="10"
-        android:inputType="textPostalAddress"
-        android:text="Enter Odometer Reading" >
+        android:hint="Enter Odometer Reading"
+        android:inputType="numberDecimal" >
 
         <requestFocus />
     </EditText>

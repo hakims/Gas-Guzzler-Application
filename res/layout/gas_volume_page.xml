@@ -27,7 +27,7 @@
         android:text="Next" />
 
     <EditText
-        android:id="@+id/GasVolumeName"
+        android:id="@+id/editText_volume"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/Next2"
@@ -35,8 +35,8 @@
         android:layout_marginLeft="54dp"
         android:layout_marginTop="66dp"
         android:ems="10"
-        android:inputType="textPostalAddress"
-        android:text="Gas Volume" >
+        android:hint="Gas Volume"
+        android:inputType="numberDecimal" >
 
         <requestFocus />
     </EditText>

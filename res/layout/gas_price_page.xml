@@ -27,13 +27,14 @@
         android:text="Next" />
 
     <EditText
-        android:id="@+id/Page2Name"
+        android:id="@+id/editText_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp"
         android:ems="10"
-        android:text="Gas Price " />
+        android:hint="Gas Price "
+        android:inputType="numberDecimal" />
 
 </RelativeLayout>
