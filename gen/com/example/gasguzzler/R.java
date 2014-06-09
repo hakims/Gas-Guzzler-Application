@@ -31,14 +31,14 @@ public final class R {
         public static final int Next1=0x7f080006;
         public static final int Next2=0x7f080009;
         public static final int NextEntryPageButton=0x7f080002;
-        public static final int SummaryName=0x7f08000e;
+        public static final int SummaryName=0x7f080010;
         public static final int VerificationName=0x7f080013;
         public static final int ViewHistoryButton=0x7f080001;
         public static final int action_settings=0x7f080014;
-        public static final int b_ViewHistory=0x7f08000f;
+        public static final int b_ViewHistory=0x7f08000e;
         public static final int b_backtoOdometer=0x7f080011;
         public static final int b_backtoVolume=0x7f08000d;
-        public static final int b_toHome=0x7f080010;
+        public static final int b_toHome=0x7f08000f;
         public static final int b_toSummary=0x7f080012;
         public static final int b_toVerification=0x7f08000c;
         public static final int editText_Volume=0x7f080007;

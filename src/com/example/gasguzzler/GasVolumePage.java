@@ -38,7 +38,6 @@ public class GasVolumePage extends MainActivity {
                 myIntent.putExtra("STRING_VOLUME", etVolume.getText().toString());
                 myIntent.putExtra("STRING_PRICE", getIntent().getStringExtra("STRING_PRICE"));
                 
-                
                 startActivityForResult(myIntent, 0);
                 //Toast.makeText(getApplicationContext(), "You went to the next page",
                 		   //Toast.LENGTH_LONG).show();

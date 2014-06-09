@@ -34,7 +34,7 @@ public class GasPricePage extends MainActivity {
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), GasVolumePage.class);
-                myIntent.putExtra("STRING_PRICE", etPrice.getText().toString());   ///send the input price in the intent
+                myIntent.putExtra("STRING_PRICE", etPrice.getText().toString());   ///send the Price in the intent
                 startActivityForResult(myIntent, 0);
                 //Toast.makeText(getApplicationContext(), "You went to the next page",
                 		   //Toast.LENGTH_LONG).show();
