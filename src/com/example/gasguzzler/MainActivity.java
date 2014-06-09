@@ -18,11 +18,17 @@ public class MainActivity extends Activity {
         
         database = new DatabaseHelper (getApplicationContext());
 
+
         Button next = (Button) findViewById(R.id.NewEntryButton);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), GasPricePage.class);
                 startActivityForResult(myIntent, 0);
+
+              //  Toast.makeText(getApplicationContext(), "You went to the next page",
+                		//   Toast.LENGTH_LONG).show();
+
+
               //  Toast.makeText(getApplicationContext(), "You went to the next page",
                 		//   Toast.LENGTH_LONG).show();
             }

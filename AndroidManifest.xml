@@ -30,6 +30,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".GasPricePage"></activity>
+        <activity android:name=".GasVolumePage"></activity>
+        <activity android:name=".OdometerPage"></activity>
+        <activity android:name=".VerificationPage"></activity>
+        <activity android:name=".SummaryPage"></activity>
     </application>
 
 </manifest>

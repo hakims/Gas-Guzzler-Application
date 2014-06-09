@@ -35,7 +35,7 @@
         android:id="@+id/b_backtoVolume"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/OdometerPageName"
+        android:layout_alignLeft="@+id/editText_odometer"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="36dp"
         android:text="Back" />
