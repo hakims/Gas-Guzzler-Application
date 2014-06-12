@@ -10,9 +10,9 @@ public class SummaryPage extends MainActivity {
 	/** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.odometer_page);
+        setContentView(R.layout.summary_page);
 
-        Button done = (Button) findViewById(R.id.b_backtoVolume);
+        Button done = (Button) findViewById(R.id.b_toHome);
         done.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
             	Intent myIntent = new Intent(view.getContext(), GasVolumePage.class);
@@ -22,7 +22,7 @@ public class SummaryPage extends MainActivity {
 
         });
         
-        Button viewHistory = (Button) findViewById(R.id.b_backtoVolume);
+        Button viewHistory = (Button) findViewById(R.id.b_toHome);
         viewHistory.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), GasVolumePage.class);
