@@ -10,7 +10,7 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 
 	DatabaseHelper database;
-	
+	Button toHistory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +34,17 @@ public class MainActivity extends Activity {
             }
 
         });
+        
+        toHistory = (Button) findViewById(R.id.ViewHistoryButton);
+        toHistory.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), HistoryPage.class);
+                
+                startActivityForResult(myIntent, 0);
+                //Toast.makeText(getApplicationContext(), "You went to the next page",
+                		   //Toast.LENGTH_LONG).show();
+            }
+    });
     }
     
 

@@ -1,12 +1,13 @@
 package com.example.gasguzzler;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class GasPricePage extends MainActivity {
+public class GasPricePage extends Activity {
 
 	Button back;
 	Button next;

@@ -35,6 +35,7 @@
         <activity android:name=".OdometerPage"></activity>
         <activity android:name=".VerificationPage"></activity>
         <activity android:name=".SummaryPage"></activity>
+        <activity android:name=".HistoryPage"></activity>
     </application>
 
 </manifest>
