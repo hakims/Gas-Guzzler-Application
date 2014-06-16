@@ -32,6 +32,16 @@ public class SummaryPage extends Activity {
                 		   //Toast.LENGTH_LONG).show();
             }
     });
+        
+        Button testQuery = (Button) findViewById(R.id.b_toQuery);
+        testQuery.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), QueryDatabase.class);
+                startActivityForResult(myIntent, 0);
+                //Toast.makeText(getApplicationContext(), "You went to the next page",
+                		   //Toast.LENGTH_LONG).show();
+            }
+    });
     
     }
     

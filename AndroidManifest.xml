@@ -36,6 +36,7 @@
         <activity android:name=".VerificationPage"></activity>
         <activity android:name=".SummaryPage"></activity>
         <activity android:name=".HistoryPage"></activity>
+        <activity android:name=".QueryDatabase"></activity>
     </application>
 
 </manifest>

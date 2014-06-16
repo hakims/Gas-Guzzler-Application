@@ -9,6 +9,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
+    
+    
     <Button
         android:id="@+id/b_ViewHistory"
         android:layout_width="match_parent"
@@ -37,5 +39,14 @@
         android:ems="10"
         android:inputType="textPostalAddress"
         android:text="Here is your summary" />
+
+    <Button
+        android:id="@+id/b_toQuery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SummaryName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:text="Test" />
 
 </RelativeLayout>

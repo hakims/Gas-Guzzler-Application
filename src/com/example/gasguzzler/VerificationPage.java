@@ -51,6 +51,9 @@ public class VerificationPage extends MainActivity {
             	
             	database.insertData(price, volume, odometer, date);
             	
+            	database.insertData("3","50","500","06-17-2014 17:00:00");  //Test cases
+            	database.insertData("5","60","125","05-05-2015 15:00:00");
+            	
                 Intent myIntent = new Intent(view.getContext(), SummaryPage.class);
                 startActivityForResult(myIntent, 0);
                 //Toast.makeText(getApplicationContext(), "You went to the next page",
