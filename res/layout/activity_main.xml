@@ -16,7 +16,7 @@
         android:layout_above="@+id/ViewHistoryButton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="26dp"
-        android:text="New Entry" />
+        android:text="Start Guzzling" />
 
     <Button
         android:id="@+id/ViewHistoryButton"
@@ -25,7 +25,7 @@
         android:layout_alignLeft="@+id/NextEntryPageButton"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="52dp"
-        android:text="View History" />
+        android:text="Guzzle Graphs" />
 
     <EditText
         android:id="@+id/MainPageName"

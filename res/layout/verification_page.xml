@@ -9,8 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-
-
     <Button
         android:id="@+id/b_backtoOdometer"
         android:layout_width="match_parent"
@@ -27,20 +25,53 @@
         android:layout_above="@+id/b_backtoOdometer"
         android:layout_alignLeft="@+id/b_backtoOdometer"
         android:layout_marginBottom="19dp"
-        android:text="Confirm" />
+        android:text="For the love of God stop Guzzling" />
+
+    <EditText
+        android:id="@+id/editText_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/VerificationName"
+        android:layout_below="@+id/VerificationName"
+        android:layout_marginTop="26dp"
+        android:ems="10"
+        android:hint="Price"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editText_volume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText_price"
+        android:layout_below="@+id/editText_price"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Volume"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editText_odometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/editText_volume"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Odometer Reading"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
 
     <EditText
         android:id="@+id/VerificationName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/b_toSummary"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="68dp"
+        android:layout_marginLeft="37dp"
         android:ems="10"
         android:inputType="textPostalAddress"
-        android:text="Are these entries correct?" >
-
-        <requestFocus />
-    </EditText>
+        android:text="Are these entries correct?" />
 
 </RelativeLayout>

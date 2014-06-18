@@ -29,7 +29,6 @@
         android:hint="Gas Price "
         android:inputType="numberDecimal" />
 
-
     <Button
         android:id="@+id/Next1"
         android:layout_width="match_parent"
@@ -37,6 +36,6 @@
         android:layout_above="@+id/Back1"
         android:layout_alignLeft="@+id/Back1"
         android:layout_marginBottom="32dp"
-        android:text="Next" />
+        android:text="Keep Guzzling" />
 
 </RelativeLayout>

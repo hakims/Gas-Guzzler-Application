@@ -30,7 +30,7 @@
         android:layout_above="@+id/b_backtoVolume"
         android:layout_alignLeft="@+id/b_backtoVolume"
         android:layout_marginBottom="18dp"
-        android:text="Next" />
+        android:text="MOAR GUZZLING!" />
 
     <Button
         android:id="@+id/b_backtoVolume"
