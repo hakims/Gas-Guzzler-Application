@@ -30,7 +30,7 @@
         android:inputType="numberDecimal" />
 
     <Button
-        android:id="@+id/Next1"
+        android:id="@+id/b_toVolume"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/Back1"

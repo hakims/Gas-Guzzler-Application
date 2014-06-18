@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class GasPricePage extends Activity {
 
@@ -33,15 +34,19 @@ public class GasPricePage extends Activity {
 
         });
         
-        next = (Button) findViewById(R.id.Next1);
+        next = (Button) findViewById(R.id.b_toVolume);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), GasVolumePage.class);
-                myIntent.putExtra("STRING_PRICE", etPrice.getText().toString());   ///send the Price in the intent
-                startActivityForResult(myIntent, 0);
-                //Toast.makeText(getApplicationContext(), "You went to the next page",
-                		   //Toast.LENGTH_LONG).show();
-            }
+       	
+            if(etPrice.getText().toString().matches(""))	
+            	Toast.makeText(getApplicationContext(), "You didn't enter anything!", Toast.LENGTH_LONG).show();
+            else
+            {	
+            	Intent myIntent = new Intent(view.getContext(), GasVolumePage.class);
+            	myIntent.putExtra("STRING_PRICE", etPrice.getText().toString());   ///send the Price in the intent
+            	startActivityForResult(myIntent, 0);
+            }	
+          }
     });
     
     }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class OdometerPage extends Activity {
 	
@@ -36,14 +37,17 @@ public class OdometerPage extends Activity {
         next = (Button) findViewById(R.id.b_toVerification);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), VerificationPage.class);
-                //Intent results = new Intent(view.getContext(), VerificationPage.class);
-                myIntent.putExtra("STRING_ODOMETER", etOdometer.getText().toString());
-                myIntent.putExtra("STRING_PRICE", getIntent().getStringExtra("STRING_PRICE"));
-                myIntent.putExtra("STRING_VOLUME", getIntent().getStringExtra("STRING_VOLUME"));
-                startActivityForResult(myIntent, 0);
-                //Toast.makeText(getApplicationContext(), "You went to the next page",
-                		   //Toast.LENGTH_LONG).show();
+            	
+            	if(etOdometer.getText().toString().matches(""))
+            		Toast.makeText(getApplicationContext(), "You didn't enter anything!", Toast.LENGTH_LONG).show();
+            	else
+            	{	
+            		Intent myIntent = new Intent(view.getContext(), VerificationPage.class);
+            		myIntent.putExtra("STRING_ODOMETER", etOdometer.getText().toString());
+            		myIntent.putExtra("STRING_PRICE", getIntent().getStringExtra("STRING_PRICE"));
+            		myIntent.putExtra("STRING_VOLUME", getIntent().getStringExtra("STRING_VOLUME"));
+            		startActivityForResult(myIntent, 0);
+            	}	
             }
     });
     

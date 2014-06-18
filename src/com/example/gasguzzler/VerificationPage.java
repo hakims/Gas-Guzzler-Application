@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class VerificationPage extends MainActivity {
@@ -58,24 +59,27 @@ public class VerificationPage extends MainActivity {
         toSummary.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
             	
-            	Calendar c = Calendar.getInstance();
-            	SimpleDateFormat df = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
-            	String date = df.format(c.getTime());
+            	if(etPrice.getText().toString().matches("") || etVolume.getText().toString().matches("") || etOdometer.getText().toString().matches(""))
+            		Toast.makeText(getApplicationContext(), "One of your input fields is empty!", Toast.LENGTH_LONG).show();
+            	else
+            	{
+            		Calendar c = Calendar.getInstance();
+            		SimpleDateFormat df = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
+            		String date = df.format(c.getTime());
             	
-            	double p = Double.parseDouble(etPrice.getText().toString());
-            	double v = Double.parseDouble(etVolume.getText().toString());
-            	double o = Double.parseDouble(etOdometer.getText().toString());
+            		double p = Double.parseDouble(etPrice.getText().toString());
+            		double v = Double.parseDouble(etVolume.getText().toString());
+            		double o = Double.parseDouble(etOdometer.getText().toString());
             	
             	
-            	database.insertData(p, v, o, date);
+            		database.insertData(p, v, o, date);
             	
-            	database.insertData(3,50,500,"06-17-2014 17:00:00");  //Test cases
-            	database.insertData(5,60,125,"05-05-2015 15:00:00");
+            		database.insertData(3,50,500,"06-17-2014 17:00:00");  //Test cases
+            		database.insertData(5,60,125,"05-05-2015 15:00:00");
             	
-                Intent myIntent = new Intent(view.getContext(), SummaryPage.class);
-                startActivityForResult(myIntent, 0);
-                //Toast.makeText(getApplicationContext(), "You went to the next page",
-                		   //Toast.LENGTH_LONG).show();
+            		Intent myIntent = new Intent(view.getContext(), SummaryPage.class);
+            		startActivityForResult(myIntent, 0);
+            	}
             }
     });
     
