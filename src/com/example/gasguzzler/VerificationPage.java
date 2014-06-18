@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 
 
@@ -20,10 +21,9 @@ public class VerificationPage extends MainActivity {
 	
 	/** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    	super.onCreate(savedInstanceState);
         setContentView(R.layout.verification_page);
 
-        
        price = getIntent().getStringExtra("STRING_PRICE");
        volume = getIntent().getStringExtra("STRING_VOLUME");
        odometer = getIntent().getStringExtra("STRING_ODOMETER"); 
@@ -48,11 +48,15 @@ public class VerificationPage extends MainActivity {
             	SimpleDateFormat df = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
             	String date = df.format(c.getTime());
             	
+            	double p = Double.parseDouble(price);
+            	double v = Double.parseDouble(volume);
+            	double o = Double.parseDouble(odometer);
             	
-            	database.insertData(price, volume, odometer, date);
             	
-            	database.insertData("3","50","500","06-17-2014 17:00:00");  //Test cases
-            	database.insertData("5","60","125","05-05-2015 15:00:00");
+            	database.insertData(p, v, o, date);
+            	
+            	database.insertData(3,50,500,"06-17-2014 17:00:00");  //Test cases
+            	database.insertData(5,60,125,"05-05-2015 15:00:00");
             	
                 Intent myIntent = new Intent(view.getContext(), SummaryPage.class);
                 startActivityForResult(myIntent, 0);

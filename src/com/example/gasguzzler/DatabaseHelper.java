@@ -24,7 +24,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	/**
 	 * Name of database - don't change
 	 */
-	private static final String DB_NAME = "drivingData";
+	private static final String DB_NAME = "drivingData.db";
 	/**
 	 * Application context
 	 */
@@ -93,7 +93,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 	
 	
-	public void insertData (String _price, String _amount, String _odometer, String _date) {
+	public void insertData (double _price, double _amount, double _odometer, String _date) {
 		ContentValues values = null;
 		
 		try {
@@ -131,7 +131,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 	
 	
-	public String getPrice (String _date) {
+	public double getPrice (String _date) {
 		
 		
 		String sql = "SELECT " + VEHICLE_COL_REFILLPRICE  + " FROM " + VEHICLE_TABLE +  
@@ -144,24 +144,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				
 			if (allRows.getCount() <=0) {
 				Log.i(getClass().getSimpleName(), sql);
-				return null;
+				return 0;
 			} else {
 				allRows.moveToFirst();
-				return allRows.getString(0);
+				return allRows.getDouble(0);
 			}
 			 
 		}catch (SQLException e) {
 			Log.e(getClass().getSimpleName(), "Unable to process SQL: " + sql);
-			return null;
+			return 0;
 		} catch (Exception e) {
 			Log.e(getClass().getSimpleName(), "Unhandled exception SQL:" + sql);
-			return null;
+			return 0;
 		}
 			
 		
 	}
 
-public String getVolume (String _date) {
+public double getVolume (String _date) {
 		
 		
 		String sql = "SELECT " + VEHICLE_COL_REFILLAMOUNT  + " FROM " + VEHICLE_TABLE +  
@@ -174,24 +174,24 @@ public String getVolume (String _date) {
 				
 			if (allRows.getCount() <=0) {
 				Log.i(getClass().getSimpleName(), sql);
-				return null;
+				return 0;
 			} else {
 				allRows.moveToFirst();
-				return allRows.getString(0);
+				return allRows.getDouble(0);
 			}
 			 
 		}catch (SQLException e) {
 			Log.e(getClass().getSimpleName(), "Unable to process SQL: " + sql);
-			return null;
+			return 0;
 		} catch (Exception e) {
 			Log.e(getClass().getSimpleName(), "Unhandled exception SQL:" + sql);
-			return null;
+			return 0;
 		}
 			
 		
 	}
 	
-public String getOdometer (String _date) {
+public double getOdometer (String _date) {
 	
 	
 	String sql = "SELECT " + VEHICLE_COL_PREVODOMETER  + " FROM " + VEHICLE_TABLE +  
@@ -204,18 +204,18 @@ public String getOdometer (String _date) {
 			
 		if (allRows.getCount() <=0) {
 			Log.i(getClass().getSimpleName(), sql);
-			return null;
+			return 0;
 		} else {
 			allRows.moveToFirst();
-			return allRows.getString(0);
+			return allRows.getDouble(0);
 		}
 		 
 	}catch (SQLException e) {
 		Log.e(getClass().getSimpleName(), "Unable to process SQL: " + sql);
-		return null;
+		return 0;
 	} catch (Exception e) {
 		Log.e(getClass().getSimpleName(), "Unhandled exception SQL:" + sql);
-		return null;
+		return 0;
 	}
 		
 	

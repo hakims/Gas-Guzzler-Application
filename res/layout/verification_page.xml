@@ -35,9 +35,12 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/b_toSummary"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="68dp"
         android:ems="10"
         android:inputType="textPostalAddress"
-        android:text="Are these entries correct?" />
+        android:text="Are these entries correct?" >
 
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>

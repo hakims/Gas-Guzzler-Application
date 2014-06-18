@@ -25,9 +25,9 @@ public class QueryDatabase extends MainActivity{
         showResults.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
             	String date = etResults.getText().toString();
-            	String outPrice = database.getPrice(date);
-            	String outVolume = database.getVolume(date);
-            	String outOdo = database.getOdometer(date);
+            	double outPrice = database.getPrice(date);
+            	double outVolume = database.getVolume(date);
+            	double outOdo = database.getOdometer(date);
             	
             	String finalOut = "Date: "+ date + " P: " + outPrice + " V: " + outVolume + " O: " + outOdo;
             	Toast.makeText(getApplicationContext(), finalOut, Toast.LENGTH_LONG).show();
