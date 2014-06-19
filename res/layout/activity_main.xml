@@ -27,20 +27,22 @@
         android:layout_marginBottom="52dp"
         android:text="Guzzle Graphs" />
 
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/gg_logo" />
+
     <EditText
         android:id="@+id/MainPageName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/NewEntryButton"
- android:layout_alignParentRight="true"
-               android:layout_alignParentTop="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="51dp"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
         android:ems="10"
         android:inputType="textPostalAddress"
-        android:text="GAS GUZZLER" >
-
-        <requestFocus />
-    </EditText>
+        android:text="GAS GUZZLER" />
 
 </RelativeLayout>
