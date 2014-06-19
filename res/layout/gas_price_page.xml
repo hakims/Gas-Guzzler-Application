@@ -9,15 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <Button
-        android:id="@+id/Back1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/NextEntryPageButton"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="52dp"
-        android:text="Back" />
-
     <EditText
         android:id="@+id/editText_price"
         android:layout_width="wrap_content"
@@ -30,12 +21,22 @@
         android:inputType="numberDecimal" />
 
     <Button
-        android:id="@+id/b_toVolume"
-        android:layout_width="match_parent"
+        android:id="@+id/b_toHome"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/Back1"
-        android:layout_alignLeft="@+id/Back1"
-        android:layout_marginBottom="32dp"
+        android:layout_alignLeft="@+id/editText_price"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="44dp"
+        android:text="Back" />
+
+    <Button
+        android:id="@+id/b_toVolume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/b_toHome"
+        android:layout_alignBottom="@+id/b_toHome"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="17dp"
         android:text="Keep Guzzling" />
 
 </RelativeLayout>

@@ -10,24 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <Button
-        android:id="@+id/Back2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/NextEntryPageButton"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="52dp"
-        android:text="Back" />
-
-    <Button
-        android:id="@+id/Next2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/Back2"
-        android:layout_alignLeft="@+id/Back2"
-        android:layout_marginBottom="24dp"
-        android:text="Keep Guzzling Please" />
-
     <EditText
         android:id="@+id/editText_volume"
         android:layout_width="wrap_content"
@@ -40,6 +22,25 @@
         android:inputType="numberDecimal" />
 
         <requestFocus />
-    
+
+        <Button
+            android:id="@+id/b_backToPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="66dp"
+            android:layout_marginRight="24dp"
+            android:layout_toLeftOf="@+id/Next2"
+            android:text="Back" />
+
+        <Button
+            android:id="@+id/b_toOdo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/b_backToPrice"
+            android:layout_alignBottom="@+id/b_backToPrice"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="32dp"
+            android:text="Keep on Guzzling" />
 
 </RelativeLayout>

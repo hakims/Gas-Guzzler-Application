@@ -24,7 +24,7 @@ public class GasPricePage extends Activity {
 
         etPrice = (EditText) findViewById (R.id.editText_price);
         
-        back = (Button) findViewById(R.id.Back1);
+        back = (Button) findViewById(R.id.b_toHome);
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();

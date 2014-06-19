@@ -25,7 +25,7 @@ public class GasVolumePage extends Activity {
 
         etVolume = (EditText) findViewById(R.id.editText_volume);
         
-        back = (Button) findViewById(R.id.Back2);
+        back = (Button) findViewById(R.id.b_backToPrice);
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();
@@ -35,7 +35,7 @@ public class GasVolumePage extends Activity {
 
         });
         
-        next = (Button) findViewById(R.id.Next2);
+        next = (Button) findViewById(R.id.b_toOdo);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
             

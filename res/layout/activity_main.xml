@@ -9,24 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <Button
-        android:id="@+id/NewEntryButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/ViewHistoryButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="26dp"
-        android:text="Start Guzzling" />
-
-    <Button
-        android:id="@+id/ViewHistoryButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/NextEntryPageButton"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="52dp"
-        android:text="Guzzle Graphs" />
-
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="175dp"
@@ -44,5 +26,23 @@
         android:ems="10"
         android:inputType="textPostalAddress"
         android:text="GAS GUZZLER" />
+
+    <Button
+        android:id="@+id/ViewHistoryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/NewEntryButton"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="42dp"
+        android:text="Guzzle Graphs" />
+
+    <Button
+        android:id="@+id/NewEntryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ViewHistoryButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="Start Guzzling" />
 
 </RelativeLayout>
