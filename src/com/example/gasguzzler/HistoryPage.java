@@ -1,10 +1,10 @@
 package com.example.gasguzzler;
 
+import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -13,7 +13,7 @@ import com.jjoe64.graphview.GraphView.GraphViewData;
 import com.jjoe64.graphview.GraphViewSeries;
 import com.jjoe64.graphview.LineGraphView;
 
-public class HistoryPage extends MainActivity {
+public class HistoryPage extends Activity {
 
 
     @Override
@@ -21,8 +21,9 @@ public class HistoryPage extends MainActivity {
     	super.onCreate(savedInstanceState);
         setContentView(R.layout.graph_page);
     	
-        SQLiteDatabase db;
-    	db = openOrCreateDatabase("drivingData.db", SQLiteDatabase.CREATE_IF_NECESSARY, null);
+        DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext());
+        SQLiteDatabase db = dbHelper.getDatabase();
+    	//db = openOrCreateDatabase("drivingData.db", SQLiteDatabase.CREATE_IF_NECESSARY, null);
     
     	String sql = "SELECT date FROM vehicle";
     	//Log.i("CRASH", "Crash 1");
@@ -37,10 +38,10 @@ public class HistoryPage extends MainActivity {
         
         while(cur.isAfterLast() == false) {
         	String date = cur.getString(0);
-        	Toast.makeText(getApplicationContext(), date, Toast.LENGTH_LONG).show();
-        	double price = database.getPrice(date);
-        	double volume = database.getVolume(date);
-        	double odo = database.getOdometer(date);
+        //	Toast.makeText(getApplicationContext(), date, Toast.LENGTH_LONG).show();
+        	double price = dbHelper.getPrice(date);
+        	double volume = dbHelper.getVolume(date);
+        	double odo = dbHelper.getOdometer(date);
         	
         	String finalOut = "Date: "+ date + " P: " + price + " V: " + volume + " O: " + odo;
         	Log.i("Accessing data from the Database", finalOut);
@@ -61,6 +62,6 @@ public class HistoryPage extends MainActivity {
         	  
         	LinearLayout layout = (LinearLayout) findViewById(R.id.graph_pageLayout);  
         	layout.addView(graphView); 
-        	
+      
     }
 }

@@ -13,7 +13,7 @@ import android.database.SQLException;
  * This class is used to create a SQLite Database we will interact with to store all the users necessary data
  * i.e. gas price, volume purchased, previous odometer reading.  
  * 
- *@author Hakims
+ *@author Ali Hakimi
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -56,6 +56,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		c = context;
 		db = this.getWritableDatabase();
 		
+	}
+	
+	
+	public SQLiteDatabase getDatabase()
+	{
+		return db;	
 	}
 	
 	/**
@@ -114,6 +120,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		}
 	}
 	
+	/*  This function is unused and is from a depricated version fo the database
 	public int getRowCount() {
 		
 		String sql = "SELECT " + VEHICLE_COL_DATE  + " FROM " + VEHICLE_TABLE;
@@ -130,7 +137,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		
 	}
 	
-	
+	*/
 	public double getPrice (String _date) {
 		
 		

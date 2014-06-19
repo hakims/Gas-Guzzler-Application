@@ -4,6 +4,7 @@ package com.example.gasguzzler;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-public class VerificationPage extends MainActivity {
+public class VerificationPage extends Activity {
 	
 	String price;
 	String volume;
@@ -31,6 +32,8 @@ public class VerificationPage extends MainActivity {
     	super.onCreate(savedInstanceState);
         setContentView(R.layout.verification_page);
 
+        final DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext()); 
+        
        price = getIntent().getStringExtra("STRING_PRICE");
        volume = getIntent().getStringExtra("STRING_VOLUME");
        odometer = getIntent().getStringExtra("STRING_ODOMETER"); 
@@ -72,10 +75,10 @@ public class VerificationPage extends MainActivity {
             		double o = Double.parseDouble(etOdometer.getText().toString());
             	
             	
-            		database.insertData(p, v, o, date);
+            		dbHelper.insertData(p, v, o, date);
             	
-            		database.insertData(3,50,500,"06-17-2014 17:00:00");  //Test cases
-            		database.insertData(5,60,125,"05-05-2015 15:00:00");
+            		dbHelper.insertData(3,50,500,"06-17-2014 17:00:00");  //Test cases
+            		dbHelper.insertData(5,60,125,"05-05-2015 15:00:00");
             	
             		Intent myIntent = new Intent(view.getContext(), SummaryPage.class);
             		startActivityForResult(myIntent, 0);
