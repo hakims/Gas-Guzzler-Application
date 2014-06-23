@@ -25,10 +25,10 @@ public class SummaryPage extends Activity {
 
         });
         
-        Button viewHistory = (Button) findViewById(R.id.b_ViewHistory);
+        Button viewHistory = (Button) findViewById(R.id.b_toGraphs);
         viewHistory.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), HistoryPage.class);
+                Intent myIntent = new Intent(view.getContext(), GraphPage.class);
                 startActivityForResult(myIntent, 0);
                 //Toast.makeText(getApplicationContext(), "You went to the next page",
                 		   //Toast.LENGTH_LONG).show();

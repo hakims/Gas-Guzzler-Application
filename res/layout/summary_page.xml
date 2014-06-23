@@ -28,21 +28,20 @@
         android:text="Here is your summary" />
 
     <Button
-        android:id="@+id/b_toHome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/b_ViewHistory"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="14dp"
-        android:text="Guzzle Again?" />
-
-    <Button
-        android:id="@+id/b_ViewHistory"
+        android:id="@+id/b_toGraphs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/b_toQuery"
         android:layout_alignLeft="@+id/b_toHome"
         android:layout_marginBottom="33dp"
         android:text="Guzzle Graphs" />
+
+    <Button
+        android:id="@+id/b_toHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/b_toGraphs"
+        android:layout_centerHorizontal="true"
+        android:text="Guzzle Again?" />
 
 </RelativeLayout>

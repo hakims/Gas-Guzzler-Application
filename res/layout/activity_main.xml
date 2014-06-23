@@ -46,7 +46,7 @@
         android:textSize="30sp" />
 
     <Button
-        android:id="@+id/ViewHistoryButton"
+        android:id="@+id/b_toGraphs"
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:layout_below="@+id/NewEntryButton"

@@ -13,7 +13,7 @@ import com.jjoe64.graphview.GraphView.GraphViewData;
 import com.jjoe64.graphview.GraphViewSeries;
 import com.jjoe64.graphview.LineGraphView;
 
-public class HistoryPage extends Activity {
+public class GraphPage extends Activity {
 
 
     @Override
@@ -45,7 +45,7 @@ public class HistoryPage extends Activity {
         	
         	String finalOut = "Date: "+ date + " P: " + price + " V: " + volume + " O: " + odo;
         	Log.i("Accessing data from the Database", finalOut);
-        	Toast.makeText(getApplicationContext(), finalOut, Toast.LENGTH_LONG).show();
+        	//Toast.makeText(getApplicationContext(), finalOut, Toast.LENGTH_LONG).show();
         	
         	exampleSeries.appendData(new GraphView.GraphViewData(4, 20), true);
         	//exampleSeries.appendData(new GraphView.GraphViewData(7, 50), true);

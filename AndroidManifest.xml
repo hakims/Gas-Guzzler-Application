@@ -38,7 +38,7 @@
         <activity android:name=".OdometerPage" android:screenOrientation="portrait"></activity>
         <activity android:name=".VerificationPage" android:screenOrientation="portrait"></activity>
         <activity android:name=".SummaryPage" android:screenOrientation="portrait"></activity>
-        <activity android:name=".HistoryPage" android:screenOrientation="portrait"></activity>
+        <activity android:name=".GraphPage" android:screenOrientation="portrait"></activity>
         <activity android:name=".QueryDatabase" android:screenOrientation="portrait"></activity>
     </application>
 

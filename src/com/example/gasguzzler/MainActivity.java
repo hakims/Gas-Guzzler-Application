@@ -38,10 +38,10 @@ public class MainActivity extends Activity {
 
         });
         
-        toHistory = (Button) findViewById(R.id.ViewHistoryButton);
+        toHistory = (Button) findViewById(R.id.b_toGraphs);
         toHistory.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), HistoryPage.class);
+                Intent myIntent = new Intent(view.getContext(), GraphPage.class);
                 
                 startActivityForResult(myIntent, 0);
                 //Toast.makeText(getApplicationContext(), "You went to the next page",
