@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">GasGuzzler</string>
+    <string name="app_name">Gas Guzzler</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
-
+    <string name="start_button_custom">Start Guzzling</string>
+    <string name="Graph_button_custom">Guzzle Graphs</string>
+    <string name="gas_price_entry">Gas Price</string>
+    <string name="gas_price_text">How much is a gallon of gas today?</string>
+    <string name="next_button_custom">Keep Guzzling!</string>
+	<string name="back">Back</string>
+    
 </resources>

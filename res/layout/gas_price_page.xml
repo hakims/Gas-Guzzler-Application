@@ -7,36 +7,76 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity" > 
 
     <EditText
         android:id="@+id/editText_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/price_entry_background"
         android:ems="10"
-        android:hint="Gas Price "
-        android:inputType="numberDecimal" />
+        android:hint="@string/gas_price_entry"
+        android:inputType="numberDecimal"
+        android:paddingLeft="30dp" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editText_price"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="56dp"
+        android:text="@string/gas_price_text"
+        android:textSize="24sp"
+        android:layout_gravity="center"
+    	android:gravity="center_horizontal"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+            
+    <Button
+        android:id="@+id/b_toVolume"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/editText_price"
+        android:layout_marginBottom="86dp"
+        android:background="@drawable/buttonshape_custom"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="50"
+        android:text="@string/next_button_custom"
+        android:textColor="#00ADA9"
+        android:textSize="28sp" />
 
     <Button
         android:id="@+id/b_toHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
         android:layout_alignLeft="@+id/editText_price"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="44dp"
-        android:text="Back" />
+        android:layout_alignTop="@+id/b_toVolume"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/buttonshape_custom"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="50"
+        android:text="@string/back"
+        android:textColor="#00ADA9"
+        android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/b_toVolume"
+    <ImageView
+        android:id="@+id/im_priceLogoImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/b_toHome"
-        android:layout_alignBottom="@+id/b_toHome"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="17dp"
-        android:text="Keep Guzzling" />
+        android:layout_above="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/gg_logo" />
 
 </RelativeLayout>
