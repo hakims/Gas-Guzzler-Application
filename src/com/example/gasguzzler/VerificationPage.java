@@ -81,7 +81,7 @@ public class VerificationPage extends Activity {
             	
             	//	dbHelper.insertData(3,50,500,"06-17-2014 17:00:00");  //Test cases
             	for(int i=0;i<25;i++)
-            		{dbHelper.insertData(5,60,125,"05-05-2015 15:00:00");
+            		{dbHelper.insertData(25,6,125234,"05-05-2015 15:00:00");
             		}
             	
             		dbHelper.close();

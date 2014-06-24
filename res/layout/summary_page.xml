@@ -47,4 +47,62 @@
         android:layout_marginBottom="17dp"
         android:text="Guzzle Graphs" />
 
+    <TextView
+        android:id="@+id/tv_ppgText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/SummaryName"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:text="Average PPG:" />
+
+    <TextView
+        android:id="@+id/tv_mpgsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tv_ppgText"
+        android:layout_marginTop="38dp"
+        android:ems="10"
+        android:text="Average MPGs:" />
+
+    <TextView
+        android:id="@+id/tv_volumePurchasedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tv_mpgsText"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:text="Average Volume Purchased:" />
+
+    <TextView
+        android:id="@+id/tv_ppgDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_mpgsText"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:hint="PPG" />
+
+    <TextView
+        android:id="@+id/tv_averageVolumeDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_volumePurchasedText"
+        android:layout_alignBottom="@+id/tv_volumePurchasedText"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:hint="Average Volume" />
+
+    <TextView
+        android:id="@+id/tv_mpgDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_volumePurchasedText"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:hint="MPG" />
+    
 </RelativeLayout>
