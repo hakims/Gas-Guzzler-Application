@@ -82,6 +82,7 @@ public class VerificationPage extends Activity {
             		{dbHelper.insertData(5,60,125,"05-05-2015 15:00:00");
             		}
             	
+            		dbHelper.close();
             		Intent myIntent = new Intent(view.getContext(), SummaryPage.class);
             		startActivityForResult(myIntent, 0);
             	}
@@ -90,4 +91,9 @@ public class VerificationPage extends Activity {
     
     }
     
+    @Override
+	public void onDestroy() {
+		super.onDestroy();
+	
+	}
 }

@@ -49,10 +49,10 @@
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="50"
+        android:shadowRadius="25"
         android:text="@string/next_button_custom"
         android:textColor="#00ADA9"
-        android:textSize="28sp" />
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/b_toHome"
@@ -65,7 +65,7 @@
         android:shadowColor="#000000"
         android:shadowDx="0"
         android:shadowDy="0"
-        android:shadowRadius="50"
+        android:shadowRadius="25"
         android:text="@string/back"
         android:textColor="#00ADA9"
         android:textSize="20sp" />
