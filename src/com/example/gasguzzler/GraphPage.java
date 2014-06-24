@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Window;
 import android.widget.LinearLayout;
 
 import com.jjoe64.graphview.BarGraphView;
@@ -19,7 +20,9 @@ public class GraphPage extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
     	super.onCreate(savedInstanceState);
-        setContentView(R.layout.graph_page);
+    	this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+    	setContentView(R.layout.graph_page);
+        
     	
         DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext());
         SQLiteDatabase db = dbHelper.getDatabase();

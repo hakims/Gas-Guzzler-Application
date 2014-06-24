@@ -67,7 +67,7 @@ public class BrowseHistoryPage extends Activity{
     	double dbOdo = dbHelper.getOdometer(dbDate);
     	
     date.setText(dbDate.subSequence(0, 11) + "     ");
-    price.setText(String.valueOf(dbPrice) + "     ");
+    price.setText("$" + String.valueOf(dbPrice) + "     ");
     volume.setText(String.valueOf(dbVolume) + "     ");
     odometer.setText(String.valueOf(dbOdo) + "     ");
     
