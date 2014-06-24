@@ -9,14 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <Button
-        android:id="@+id/b_toQuery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Test" />
-
     <EditText
         android:id="@+id/SummaryName"
         android:layout_width="match_parent"
@@ -28,20 +20,29 @@
         android:text="Here is your summary" />
 
     <Button
-        android:id="@+id/b_toGraphs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/b_toQuery"
-        android:layout_alignLeft="@+id/b_toHome"
-        android:layout_marginBottom="33dp"
-        android:text="Guzzle Graphs" />
-
-    <Button
         android:id="@+id/b_toHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/b_toGraphs"
         android:layout_centerHorizontal="true"
         android:text="Guzzle Again?" />
+
+    <Button
+        android:id="@+id/b_toHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/b_toGraphs"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="94dp"
+        android:text="View History" />
+
+    <Button
+        android:id="@+id/b_toGraphs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/b_toHistory"
+        android:layout_alignLeft="@+id/SummaryName"
+        android:layout_marginBottom="17dp"
+        android:text="Guzzle Graphs" />
 
 </RelativeLayout>

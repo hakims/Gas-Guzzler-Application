@@ -30,22 +30,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/NewEntryButton"
-        android:layout_width="215dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="58dp"
-        android:background="@drawable/buttonshape_custom"
-        android:shadowColor="#000000"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="50"
-        android:text="@string/start_button_custom"
-        android:textColor="#00ADA9"
-        android:textSize="30sp" />
-
-    <Button
         android:id="@+id/b_toGraphs"
         android:layout_width="160dp"
         android:layout_height="40dp"
@@ -60,5 +44,30 @@
         android:text="@string/Graph_button_custom"
         android:textColor="#00ADA9"
         android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/NewEntryButton"
+        android:layout_width="215dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:background="@drawable/buttonshape_custom"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="50"
+        android:text="@string/start_button_custom"
+        android:textColor="#00ADA9"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/b_toHistory"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Browse History" />
 
 </RelativeLayout>

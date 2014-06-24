@@ -12,6 +12,8 @@ public class MainActivity extends Activity {
 	DatabaseHelper database;
 	Button next;
 	Button toHistory;
+	Button toGraphs;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         
@@ -38,14 +40,23 @@ public class MainActivity extends Activity {
 
         });
         
-        toHistory = (Button) findViewById(R.id.b_toGraphs);
-        toHistory.setOnClickListener(new View.OnClickListener() {
+        toGraphs = (Button) findViewById(R.id.b_toGraphs);
+        toGraphs.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), GraphPage.class);
                 
                 startActivityForResult(myIntent, 0);
                 //Toast.makeText(getApplicationContext(), "You went to the next page",
                 		   //Toast.LENGTH_LONG).show();
+            }
+    });
+        
+        toHistory = (Button) findViewById(R.id.b_toHistory);
+        toHistory.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), BrowseHistoryPage.class);
+                
+                startActivityForResult(myIntent, 0);
             }
     });
     }
