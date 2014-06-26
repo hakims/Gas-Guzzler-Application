@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SummaryPage extends Activity {
 	/** Called when the activity is first created. */
@@ -32,27 +33,22 @@ public class SummaryPage extends Activity {
         setContentView(R.layout.summary_page);
 
         DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext());
-        SQLiteDatabase db = dbHelper.getDatabase();
-    	//db = openOrCreateDatabase("drivingData.db", SQLiteDatabase.CREATE_IF_NECESSARY, null);
     
-    	String sql = "SELECT date FROM vehicle";
-    	Cursor cur = db.rawQuery(sql, null);
-    	cur.moveToFirst();
-    
-        while(cur.isAfterLast() == false)
-        {
-        	String date = cur.getString(0);
-           	avgPrice += dbHelper.getPrice(date)/dbHelper.getVolume(date);
-           	totalVolume += dbHelper.getVolume(date);
-        	rowCount++;
-        	cur.moveToNext();
-        }
+       rowCount = dbHelper.getNumRows(); 
+       totalVolume = dbHelper.getTotalVolume();
         
-        dbHelper.close();
+        //Toast.makeText(getApplicationContext(), "What is: " + dbHelper.getTotalVolume() + " What should be: " + totalVolume,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), avgPrice + " = " + dbHelper.getAveragePrice(),Toast.LENGTH_LONG).show();
+       //Toast.makeText(getApplicationContext(), rowCount + " = " + dbHelper.getNumRows(),Toast.LENGTH_LONG).show();
+       
         
-        ppg = avgPrice/rowCount;
+        ppg = dbHelper.getAveragePrice()/rowCount;
+       // ppg = avgPrice/rowCount;
        // mpg = implement me
         avgVol = totalVolume/rowCount;
+        
+
+        dbHelper.close();
         
         
         tvPPG = (TextView) findViewById(R.id.tv_ppgDisplay);
@@ -94,8 +90,7 @@ public class SummaryPage extends Activity {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), BrowseHistoryPage.class);
                 startActivityForResult(myIntent, 0);
-                //Toast.makeText(getApplicationContext(), "You went to the next page",
-                		   //Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "You went to the next page",Toast.LENGTH_LONG).show();
             }
     });
     

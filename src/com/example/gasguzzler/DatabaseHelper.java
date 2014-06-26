@@ -227,8 +227,103 @@ public double getOdometer (String _date) {
 		
 	
 }
+
+public int getNumRows()
+{
+	int rowCount = 0;
+	
+	String sql = "SELECT " + VEHICLE_COL_DATE + " FROM " + VEHICLE_TABLE;
+	
+	Cursor cur = db.rawQuery(sql, null);
+	cur.moveToFirst();
+
+    while(cur.isAfterLast() == false)
+    {
+       	rowCount++;
+    	cur.moveToNext();
+    }
+	
+	return rowCount;
+}
+
+public double getAveragePrice()
+{
+	double avPrice = 0;
+	
+	String sql = "SELECT " + VEHICLE_COL_REFILLPRICE + ", " + VEHICLE_COL_REFILLAMOUNT + " FROM " + VEHICLE_TABLE;
+
+	try {
+		Cursor allRows = db.rawQuery(sql, null);
+		allRows.moveToFirst();
+		
+		while(allRows.isAfterLast() == false)
+		{
+		
+			if (allRows.getCount() <=0) {
+				Log.i(getClass().getSimpleName(), sql);
+				return 0;
+			} else {
+			
+				Log.i("Database Debug", "the value of avg is: " + avPrice);
+				avPrice += allRows.getDouble(0) / allRows.getDouble(1);
+				allRows.moveToNext();
+			}
+		}
+		 allRows.close();
+		 
+	}catch (SQLException e) {
+		Log.e(getClass().getSimpleName(), "Unable to process SQL: " + sql);
+		return 0;
+	} catch (Exception e) {
+		Log.e(getClass().getSimpleName(), "Unhandled exception SQL:" + sql);
+		return 0;
+	}
 	
 	
+	return avPrice;
+	
+}
+
+
+	public double getTotalVolume()
+	{
+		double total = 0;
+		
+		String sql = "SELECT " + VEHICLE_COL_REFILLAMOUNT + " FROM " + VEHICLE_TABLE;
+		
+		try {
+			Cursor allRows = db.rawQuery(sql, null);
+			allRows.moveToFirst();
+			
+			while(allRows.isAfterLast() == false)
+			{
+			
+				if (allRows.getCount() <=0) {
+					Log.i(getClass().getSimpleName(), sql);
+					return 0;
+				} else {
+				
+					Log.i("Database Debug", "the value of total is: " + total);
+					total += allRows.getDouble(0);
+					allRows.moveToNext();
+				}
+			}
+			 allRows.close();
+			 
+		}catch (SQLException e) {
+			Log.e(getClass().getSimpleName(), "Unable to process SQL: " + sql);
+			return 0;
+		} catch (Exception e) {
+			Log.e(getClass().getSimpleName(), "Unhandled exception SQL:" + sql);
+			return 0;
+		}
+		
+		
+		return total;
+		
+	}
+
+
 	/**
 	 * Upgrades the database.
 	 */
