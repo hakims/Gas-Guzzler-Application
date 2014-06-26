@@ -18,13 +18,13 @@ public class SummaryPage extends Activity {
 	/** Called when the activity is first created. */
 	
 	Button viewGraphs;
-	Button done;
+	Button toHome;
 	Button viewHistory;
 	TextView tvPPG;
 	TextView tvMPG;
 	TextView tvAvgVol;
+	
 	double avgPrice=0, totalVolume=0;
-	int rowCount=0;
 	double ppg=0, mpg=0, avgVol=0;
 	
     public void onCreate(Bundle savedInstanceState) {
@@ -34,20 +34,14 @@ public class SummaryPage extends Activity {
 
         DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext());
     
-       rowCount = dbHelper.getNumRows(); 
-       totalVolume = dbHelper.getTotalVolume();
         
-        //Toast.makeText(getApplicationContext(), "What is: " + dbHelper.getTotalVolume() + " What should be: " + totalVolume,Toast.LENGTH_LONG).show();
-        //Toast.makeText(getApplicationContext(), avgPrice + " = " + dbHelper.getAveragePrice(),Toast.LENGTH_LONG).show();
-       //Toast.makeText(getApplicationContext(), rowCount + " = " + dbHelper.getNumRows(),Toast.LENGTH_LONG).show();
+        totalVolume = dbHelper.getTotalVolume();
+        
+        ppg = dbHelper.getAveragePrice()/dbHelper.getNumRows();
        
+        // mpg = implement me
+        avgVol = totalVolume/dbHelper.getNumRows();
         
-        ppg = dbHelper.getAveragePrice()/rowCount;
-       // ppg = avgPrice/rowCount;
-       // mpg = implement me
-        avgVol = totalVolume/rowCount;
-        
-
         dbHelper.close();
         
         
@@ -64,36 +58,50 @@ public class SummaryPage extends Activity {
         tvPPG.setText(strPPG);
         tvMPG.setText(strMPG);
         tvAvgVol.setText(strAvgVol);
+    
+    
+        ///Initialize the button that sends an intent, pushing the user back to the Main page. 
         
-        done = (Button) findViewById(R.id.b_toHome);
-        done.setOnClickListener(new View.OnClickListener() {
+        toHome = (Button) findViewById(R.id.b_toHome);
+        toHome.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
             	Intent myIntent = new Intent(view.getContext(), MainActivity.class);
                 startActivityForResult(myIntent, 0);
                 finish();
             }
 
-        });
+         });
         
-        viewGraphs = (Button) findViewById(R.id.b_toGraphs);
-        viewGraphs.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
+         ///Initialize the button that sends an intent, pushing the user to the GraphPage.
+        
+         viewGraphs = (Button) findViewById(R.id.b_toGraphs);
+         viewGraphs.setOnClickListener(new View.OnClickListener() {
+         
+        	 public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), GraphPage.class);
                 startActivityForResult(myIntent, 0);
-                //Toast.makeText(getApplicationContext(), "You went to the next page",
-                		   //Toast.LENGTH_LONG).show();
             }
-    });
+        });
+      
+        ///Initialize the button that sends an intent, pushing the user to the HistoryPage. 
         
         viewHistory = (Button) findViewById(R.id.b_toHistory);
         viewHistory.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), BrowseHistoryPage.class);
                 startActivityForResult(myIntent, 0);
-                //Toast.makeText(getApplicationContext(), "You went to the next page",Toast.LENGTH_LONG).show();
             }
     });
     
+    }
+    
+    ///Override the default hardware back button because leaving it allows database mishaps. Send the user to MainPage
+    
+    @Override
+    public void onBackPressed()
+    {
+    	Intent myIntent = new Intent(this ,MainActivity.class);
+        startActivityForResult(myIntent, 0);
     }
     
 }

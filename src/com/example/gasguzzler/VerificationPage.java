@@ -79,11 +79,6 @@ public class VerificationPage extends Activity {
             	
             		dbHelper.insertData(p, v, o, date);
             	
-            	//	dbHelper.insertData(3,50,500,"06-17-2014 17:00:00");  //Test cases
-            	for(int i=0;i<25;i++)
-            		{dbHelper.insertData(25,6,125234,"05-05-2015 15:00:00");
-            		}
-            	
             		dbHelper.close();
             		Intent myIntent = new Intent(view.getContext(), SummaryPage.class);
             		startActivityForResult(myIntent, 0);
