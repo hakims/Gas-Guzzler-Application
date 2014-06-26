@@ -9,5 +9,6 @@
     <string name="gas_price_text">How much is a gallon of gas today?</string>
     <string name="next_button_custom">Keep Guzzling!</string>
 	<string name="back">Back</string>
+	<string name="history_button_custom">Guzzle History</string>
     
 </resources>
