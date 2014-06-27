@@ -1,45 +1,85 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ggbackground"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity" > 
 
+        <TextView
+        android:id="@+id/odometer_text"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editText_odometer"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="56dp"
+        android:gravity="center_horizontal"
+        android:text="@string/odometer_text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="24sp" />
+    
     <EditText
         android:id="@+id/editText_odometer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/Next2"
-        android:layout_marginTop="66dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/odometer_entry_background"
         android:ems="10"
-        android:hint="Enter Odometer Reading"
-        android:inputType="numberDecimal" >
+        android:hint="@string/odometer_entry"
+        android:inputType="numberDecimal"
+        android:paddingLeft="10dp" >
 
         <requestFocus />
     </EditText>
 
+
+            
     <Button
         android:id="@+id/b_toVerification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/b_backtoVolume"
-        android:layout_alignBottom="@+id/b_backtoVolume"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/editText_odometer"
-        android:text="MOAR GUZZLING!" />
+        android:layout_marginBottom="86dp"
+        android:background="@drawable/buttonshape_custom"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="50"
+        android:text="@string/next_button_custom"
+        android:textColor="#00ADA9"
+        android:textSize="28sp" />
 
     <Button
         android:id="@+id/b_backtoVolume"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/editText_odometer"
+        android:layout_alignTop="@+id/b_toVerification"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/buttonshape_custom"
+        android:shadowColor="#000000"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="50"
+        android:text="@string/back"
+        android:textColor="#00ADA9"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/im_odometerLogoImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText_odometer"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="51dp"
-        android:layout_marginLeft="14dp"
-        android:text="Back" />
+        android:layout_above="@+id/odometer_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/gg_logo" 
+        android:contentDescription="@string/logo_text"/>
 
 </RelativeLayout>

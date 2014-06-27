@@ -10,20 +10,21 @@
     tools:context=".MainActivity" >
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/im_mainLogoImage"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
         android:scaleType="fitXY"
-        android:src="@drawable/gg_logo" />
+        android:src="@drawable/gg_logo" 
+        android:contentDescription="@string/logo_text"/>
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView1"
+        android:layout_below="@+id/im_mainLogoImage"
         android:layout_centerHorizontal="true"
         android:text="@string/app_name"
         android:textSize="35sp"
@@ -35,7 +36,7 @@
         android:id="@+id/NewEntryButton"
         android:layout_width="215dp"
         android:layout_height="60dp"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/app_name"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
         android:background="@drawable/buttonshape_custom"

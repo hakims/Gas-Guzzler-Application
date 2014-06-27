@@ -9,69 +9,122 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <Button
-        android:id="@+id/b_backtoOdometer"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/im_odometerLogoImage"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText_odometer"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="36dp"
-        android:text="Back" />
+        android:layout_marginTop="2dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="28dp"
+        android:contentDescription="@string/logo_text"
+        android:src="@drawable/gg_logo" />
 
-    <Button
-        android:id="@+id/b_toSummary"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/verification_text"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/b_backtoOdometer"
-        android:layout_alignLeft="@+id/b_backtoOdometer"
-        android:layout_marginBottom="19dp"
-        android:text="For the love of God stop Guzzling" />
+        android:layout_below="@+id/im_odometerLogoImage"
+        android:layout_centerHorizontal="true"
+        android:text="@string/verification_text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="24sp" />
 
     <EditText
         android:id="@+id/editText_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/VerificationName"
-        android:layout_below="@+id/VerificationName"
-        android:layout_marginTop="26dp"
+        android:layout_width="160dp"
+        android:layout_height="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/verification_text"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/price_entry_background_small"
         android:ems="10"
-        android:hint="Price"
-        android:inputType="numberDecimal" />
+        android:hint="@string/gas_price_vEntry"
+        android:inputType="numberDecimal"
+        android:paddingLeft="25dp" />
 
     <EditText
         android:id="@+id/editText_volume"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="160dp"
+        android:layout_height="35dp"
         android:layout_alignLeft="@+id/editText_price"
         android:layout_below="@+id/editText_price"
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/gallons_entry_background_small"
         android:ems="10"
-        android:hint="Volume"
-        android:inputType="numberDecimal" />
+        android:hint="@string/gas_volume_vEntry"
+        android:inputType="numberDecimal"
+        android:paddingLeft="5dp" />
 
     <EditText
         android:id="@+id/editText_odometer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_width="160dp"
+        android:layout_height="35dp"
+        android:layout_alignLeft="@+id/editText_volume"
         android:layout_below="@+id/editText_volume"
-        android:layout_marginTop="24dp"
+        android:background="@drawable/odometer_entry_background_small"
         android:ems="10"
-        android:hint="Odometer Reading"
-        android:inputType="numberDecimal" >
+        android:hint="@string/odometer_vEntry"
+        android:inputType="numberDecimal"
+        android:paddingLeft="5dp" >
 
         <requestFocus />
     </EditText>
 
-    <EditText
-        android:id="@+id/VerificationName"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/vText_gas_price"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="37dp"
-        android:ems="10"
-        android:inputType="textPostalAddress"
-        android:text="Are these entries correct?" />
+        android:layout_alignBaseline="@+id/editText_price"
+        android:layout_alignBottom="@+id/editText_price"
+        android:layout_marginLeft="30dp"
+        android:text="@string/gas_price_vText"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editText_volume"
+        android:layout_alignBottom="@+id/editText_volume"
+        android:layout_alignRight="@+id/vText_gas_price"
+        android:text="@string/gas_volume_vText"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editText_odometer"
+        android:layout_alignBottom="@+id/editText_odometer"
+        android:layout_alignRight="@+id/textView3"
+        android:text="@string/odometer_vText"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/b_toSummary"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_alignRight="@+id/editText_odometer"
+        android:layout_marginRight="14dp"
+        android:layout_below="@+id/editText_odometer"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/buttonshape_custom"
+        android:text="@string/verification_button_custom"
+        android:textColor="#00ADA9"
+        android:textSize="28sp" />
+
+    <Button
+        android:id="@+id/b_backtoOdometer"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignTop="@+id/b_toSummary"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="3dp"
+        android:background="@drawable/buttonshape_custom"
+        android:text="@string/back"
+        android:textColor="#00ADA9"
+        android:textSize="20sp" />
 
 </RelativeLayout>

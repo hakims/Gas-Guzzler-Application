@@ -10,5 +10,20 @@
     <string name="next_button_custom">Keep Guzzling!</string>
 	<string name="back">Back</string>
 	<string name="history_button_custom">Guzzle History</string>
+	<string name="gas_volume_text">How much did you fill your tank today?</string>
+    <string name="gas_volume_entry">Gallons of gas</string>
+    <string name="odometer_text">What is the reading on your odometer?</string>
+	<string name="odometer_entry">Mileage on odometer</string>
+    <string name="verification_text">Does this look right?</string>
+    <string name="gas_price_vText">Gas Price:</string>
+    <string name="gas_volume_vText">Gas Volume:</string>
+    <string name="gas_price_vEntry">Price</string>
+    <string name="gas_volume_vEntry">Volume</string>
+    <string name="logo_text">Gas Guzzler Logo</string>
+    <string name="verification_button_custom">Done Guzzling!</string>
+    <string name="odometer_vEntry">Mileage</string>
+    <string name="odometer_vText">Car Mileage:</string>
+    <string name="query_test">Show Results</string>
+    <string name="summary_to_main">Guzzle Again?</string>
     
 </resources>
