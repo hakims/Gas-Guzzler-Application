@@ -6,6 +6,7 @@ import java.util.Calendar;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -43,6 +44,10 @@ public class VerificationPage extends Activity {
        etPrice = (EditText) findViewById(R.id.editText_price);
        etVolume = (EditText) findViewById(R.id.editText_volume);
        etOdometer = (EditText) findViewById(R.id.editText_odometer);
+       
+       etPrice.setTextColor(Color.BLACK);
+       etVolume.setTextColor(Color.BLACK);
+       etOdometer.setTextColor(Color.BLACK);
        
        etPrice.setText(price);
        etVolume.setText(volume);

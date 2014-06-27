@@ -3,6 +3,7 @@ package com.example.gasguzzler;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -24,6 +25,7 @@ public class GasVolumePage extends Activity {
         setContentView(R.layout.gas_volume_page);
 
         etVolume = (EditText) findViewById(R.id.editText_volume);
+        etVolume.setTextColor(Color.BLACK);
         
         back = (Button) findViewById(R.id.b_backToPrice);
         back.setOnClickListener(new View.OnClickListener() {

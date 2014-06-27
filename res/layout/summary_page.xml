@@ -20,15 +20,6 @@
         android:src="@drawable/gg_logo" />
 
     <TextView
-        android:id="@+id/tv_ppgDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tv_mpgsText"
-        android:layout_alignParentRight="true"
-        android:ems="10"
-        android:hint="@string/ppg_placeholder_summaryText" />
-
-    <TextView
         android:id="@+id/tv_averageVolumeDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,33 +30,6 @@
         android:hint="@string/vol_placeholder_summaryText" />
 
     <TextView
-        android:id="@+id/tv_mpgDisplay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tv_volumePurchasedText"
-        android:layout_alignParentRight="true"
-        android:ems="10"
-        android:hint="@string/mgp_placeholder_summaryText" />
-
-    <TextView
-        android:id="@+id/tv_volumePurchasedText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/b_toHome"
-        android:layout_centerVertical="true"
-        android:ems="10"
-        android:text="@string/avg_vol_summaryText" />
-
-    <TextView
-        android:id="@+id/tv_mpgsText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tv_mpgDisplay"
-        android:layout_alignLeft="@+id/tv_volumePurchasedText"
-        android:ems="10"
-        android:text="@string/avg_mpg_summaryText" />
-
-    <TextView
         android:id="@+id/text_summary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,15 +38,6 @@
         android:text="@string/summary_text"
         android:textSize="24sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/tv_ppgText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tv_ppgDisplay"
-        android:layout_alignLeft="@+id/text_summary"
-        android:ems="10"
-        android:text="@string/avg_ppg_summaryText" />
 
     <Button
         android:id="@+id/b_toHistory"
@@ -108,5 +63,53 @@
         android:layout_above="@+id/b_toHistory"
         android:layout_alignLeft="@+id/b_toHome"
         android:text="@string/Graph_button_custom" />
+
+    <TextView
+        android:id="@+id/tv_mpgDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_averageVolumeDisplay"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="26dp"
+        android:ems="10"
+        android:hint="@string/mgp_placeholder_summaryText" />
+
+    <TextView
+        android:id="@+id/tv_volumePurchasedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/b_toHome"
+        android:layout_alignLeft="@+id/b_toHome"
+        android:ems="10"
+        android:text="@string/avg_vol_summaryText" />
+
+    <TextView
+        android:id="@+id/tv_mpgsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_mpgDisplay"
+        android:layout_alignLeft="@+id/tv_ppgText"
+        android:ems="10"
+        android:text="@string/avg_mpg_summaryText" />
+
+    <TextView
+        android:id="@+id/tv_ppgText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_ppgDisplay"
+        android:layout_alignBottom="@+id/tv_ppgDisplay"
+        android:layout_alignLeft="@+id/tv_volumePurchasedText"
+        android:ems="10"
+        android:text="@string/avg_ppg_summaryText" />
+
+    <TextView
+        android:id="@+id/tv_ppgDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_mpgsText"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="25dp"
+        android:ems="10"
+        android:hint="@string/ppg_placeholder_summaryText" />
 
 </RelativeLayout>

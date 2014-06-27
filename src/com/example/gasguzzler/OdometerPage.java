@@ -3,6 +3,7 @@ package com.example.gasguzzler;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -23,6 +24,7 @@ public class OdometerPage extends Activity {
         setContentView(R.layout.odometer_page);
 
         etOdometer = (EditText) findViewById(R.id.editText_odometer);
+        etOdometer.setTextColor(Color.BLACK);
         
         back = (Button) findViewById(R.id.b_backtoVolume);
         back.setOnClickListener(new View.OnClickListener() {
