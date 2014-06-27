@@ -19,32 +19,6 @@
         android:contentDescription="@string/logo_text"
         android:src="@drawable/gg_logo" />
 
-    <Button
-        android:id="@+id/b_toHome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/b_toGraphs"
-        android:layout_centerHorizontal="true"
-        android:text="@string/summary_to_main" />
-
-    <Button
-        android:id="@+id/b_toHistory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/b_toGraphs"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="94dp"
-        android:text="View History" />
-
-    <Button
-        android:id="@+id/b_toGraphs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/b_toHistory"
-        android:layout_alignLeft="@+id/b_toHome"
-        android:layout_marginBottom="17dp"
-        android:text="Guzzle Graphs" />
-
     <TextView
         android:id="@+id/tv_ppgDisplay"
         android:layout_width="wrap_content"
@@ -52,7 +26,7 @@
         android:layout_above="@+id/tv_mpgsText"
         android:layout_alignParentRight="true"
         android:ems="10"
-        android:hint="PPG" />
+        android:hint="@string/ppg_placeholder_summaryText" />
 
     <TextView
         android:id="@+id/tv_averageVolumeDisplay"
@@ -62,7 +36,7 @@
         android:layout_alignBottom="@+id/tv_volumePurchasedText"
         android:layout_alignParentRight="true"
         android:ems="10"
-        android:hint="Average Volume" />
+        android:hint="@string/vol_placeholder_summaryText" />
 
     <TextView
         android:id="@+id/tv_mpgDisplay"
@@ -71,7 +45,7 @@
         android:layout_above="@+id/tv_volumePurchasedText"
         android:layout_alignParentRight="true"
         android:ems="10"
-        android:hint="MPG" />
+        android:hint="@string/mgp_placeholder_summaryText" />
 
     <TextView
         android:id="@+id/tv_volumePurchasedText"
@@ -80,7 +54,7 @@
         android:layout_alignLeft="@+id/b_toHome"
         android:layout_centerVertical="true"
         android:ems="10"
-        android:text="Average Volume Purchased:" />
+        android:text="@string/avg_vol_summaryText" />
 
     <TextView
         android:id="@+id/tv_mpgsText"
@@ -89,16 +63,50 @@
         android:layout_above="@+id/tv_mpgDisplay"
         android:layout_alignLeft="@+id/tv_volumePurchasedText"
         android:ems="10"
-        android:text="Average MPGs:" />
+        android:text="@string/avg_mpg_summaryText" />
+
+    <TextView
+        android:id="@+id/text_summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/im_odometerLogoImage"
+        android:layout_centerHorizontal="true"
+        android:text="@string/summary_text"
+        android:textSize="24sp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
         android:id="@+id/tv_ppgText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/tv_ppgDisplay"
-        android:layout_alignLeft="@+id/tv_mpgsText"
-        android:layout_marginBottom="21dp"
+        android:layout_alignLeft="@+id/text_summary"
         android:ems="10"
-        android:text="Average PPG:" />
+        android:text="@string/avg_ppg_summaryText" />
+
+    <Button
+        android:id="@+id/b_toHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:text="@string/history_button_custom" />
+
+    <Button
+        android:id="@+id/b_toHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/b_toGraphs"
+        android:layout_alignRight="@+id/tv_averageVolumeDisplay"
+        android:text="@string/summary_to_main" />
+
+    <Button
+        android:id="@+id/b_toGraphs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/b_toHistory"
+        android:layout_alignLeft="@+id/b_toHome"
+        android:text="@string/Graph_button_custom" />
 
 </RelativeLayout>

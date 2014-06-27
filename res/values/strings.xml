@@ -25,5 +25,12 @@
     <string name="odometer_vText">Car Mileage:</string>
     <string name="query_test">Show Results</string>
     <string name="summary_to_main">Guzzle Again?</string>
+    <string name="summary_text">Here is your Summary</string>
+    <string name="avg_ppg_summaryText">Average PPG:</string>
+    <string name="avg_mpg_summaryText">Average MPG:</string>
+    <string name="avg_vol_summaryText">Average Volume Purchased:</string>
+    <string name="ppg_placeholder_summaryText">PPG</string>
+    <string name="mgp_placeholder_summaryText">MPG</string>
+    <string name="vol_placeholder_summaryText">Avg Volume</string>
     
 </resources>
