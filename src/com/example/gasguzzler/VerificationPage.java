@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -28,6 +29,7 @@ public class VerificationPage extends Activity {
 	EditText etVolume;
 	EditText etOdometer;
 	
+	final DataProcessor inputProcessor = new DataProcessor();
 	
 	/** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,8 @@ public class VerificationPage extends Activity {
        etVolume.setText(volume);
        etOdometer.setText(odometer);
        
+       etPrice.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(5,2)});
+       
         Log.i("Before Changing Verifications", " P: " + price + " V: " + volume + " O: " + odometer );
         
         back = (Button) findViewById(R.id.b_backtoOdometer);
@@ -69,8 +73,13 @@ public class VerificationPage extends Activity {
         toSummary.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
             	
-            	if(etPrice.getText().toString().matches("") || etVolume.getText().toString().matches("") || etOdometer.getText().toString().matches(""))
+            	if(inputProcessor.isInValidInputEmpty(etPrice.getText().toString()) || inputProcessor.isInValidInputEmpty(etVolume.getText().toString())
+            			|| inputProcessor.isInValidInputEmpty(etOdometer.getText().toString()))
             		Toast.makeText(getApplicationContext(), "One of your input fields is empty!", Toast.LENGTH_LONG).show();
+            	else if(inputProcessor.isInValidInputZero(etPrice.getText().toString()) || inputProcessor.isInValidInputZero(etVolume.getText().toString()))
+            		Toast.makeText(getApplicationContext(), "Zero is not a valid input!", Toast.LENGTH_LONG).show();
+            	else if (Double.parseDouble(etOdometer.getText().toString()) < dbHelper.getLastMileage())
+            		Toast.makeText(getApplicationContext(), "I didn't know Odometers could be turned backwards?", Toast.LENGTH_LONG).show();
             	else
             	{
             		Calendar c = Calendar.getInstance();

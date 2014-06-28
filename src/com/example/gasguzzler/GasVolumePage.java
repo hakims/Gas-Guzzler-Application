@@ -16,13 +16,16 @@ public class GasVolumePage extends Activity {
 	Button back;
 	Button next;
 	EditText etVolume;
-	
+
+    final DataProcessor inputProcessor = new DataProcessor();
+
 	
 	/** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.gas_volume_page);
+        
 
         etVolume = (EditText) findViewById(R.id.editText_volume);
         etVolume.setTextColor(Color.BLACK);
@@ -41,9 +44,13 @@ public class GasVolumePage extends Activity {
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
             
-            	if(etVolume.getText().toString().matches(""))
+            	String input = etVolume.getText().toString();
+            	
+            	if(inputProcessor.isInValidInputEmpty(input))
             		Toast.makeText(getApplicationContext(), "You didn't enter anything!", Toast.LENGTH_LONG).show();
-            	else
+            	else if(inputProcessor.isInValidInputZero(input))
+                	Toast.makeText(getApplicationContext(), "Don't get smart with me!", Toast.LENGTH_LONG).show();
+                else
             	{
             		Intent myIntent = new Intent(view.getContext(), OdometerPage.class);
             		myIntent.putExtra("STRING_VOLUME", etVolume.getText().toString());

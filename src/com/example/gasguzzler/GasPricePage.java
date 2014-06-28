@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -16,15 +17,17 @@ public class GasPricePage extends Activity {
 	Button next;
 	EditText etPrice;
 	
+	final DataProcessor inputProcessor = new DataProcessor();
 	
 	/** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.gas_price_page);
-
+        
         etPrice = (EditText) findViewById (R.id.editText_price);
         etPrice.setTextColor(Color.BLACK);
+        etPrice.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(5,2)});
         
         back = (Button) findViewById(R.id.b_toHome);
         back.setOnClickListener(new View.OnClickListener() {
@@ -40,8 +43,12 @@ public class GasPricePage extends Activity {
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
        	
-            if(etPrice.getText().toString().matches(""))	
+            String input = etPrice.getText().toString();
+            	
+            if(inputProcessor.isInValidInputEmpty(input))	
             	Toast.makeText(getApplicationContext(), "You didn't enter anything!", Toast.LENGTH_LONG).show();
+            else if(inputProcessor.isInValidInputZero(input))
+            	Toast.makeText(getApplicationContext(), "Gas isn't Free!", Toast.LENGTH_LONG).show();
             else
             {	
             	Intent myIntent = new Intent(view.getContext(), GasVolumePage.class);

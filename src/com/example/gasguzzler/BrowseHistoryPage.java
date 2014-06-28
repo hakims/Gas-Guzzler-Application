@@ -20,13 +20,13 @@ public class BrowseHistoryPage extends Activity{
 	TableRow rowHeader, rowX;
 	
 	TextView date = new TextView(this);
-	date.setText("DATE     ");
+	date.setText("Date    ");
 	TextView price = new TextView(this);
-	price.setText("PRICE     ");
+	price.setText("Amount     \nSpent ($)");
 	TextView volume = new TextView(this);
-	volume.setText("VOLUME     ");
+	volume.setText("Amount     \nPurchased \n (gallons)");
 	TextView odometer = new TextView(this);
-	odometer.setText("ODOMETER     ");
+	odometer.setText("   Mileage     \n   (Miles)");
 	
 	rowHeader = new TableRow(this);
 	
@@ -67,9 +67,9 @@ public class BrowseHistoryPage extends Activity{
     	double dbOdo = dbHelper.getOdometer(dbDate);
     	
     date.setText(dbDate.subSequence(0, 11) + "     ");
-    price.setText("$" + String.valueOf(dbPrice) + "     ");
-    volume.setText(String.valueOf(dbVolume) + "     ");
-    odometer.setText(String.valueOf(dbOdo) + "     ");
+    price.setText(String.valueOf(dbPrice) + "     ");
+    volume.setText("   " + String.valueOf(dbVolume) + "     ");
+    odometer.setText("     " + String.valueOf(dbOdo) + "     ");
     
     rowX.addView(date);
     rowX.addView(price);

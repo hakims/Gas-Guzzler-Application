@@ -16,6 +16,8 @@ public class OdometerPage extends Activity {
 	Button back;
 	Button next;
 	EditText etOdometer;
+
+    final DataProcessor inputProcessor = new DataProcessor();
 	
 	/** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,8 @@ public class OdometerPage extends Activity {
     	super.onCreate(savedInstanceState);
         setContentView(R.layout.odometer_page);
 
+        final DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext());
+        
         etOdometer = (EditText) findViewById(R.id.editText_odometer);
         etOdometer.setTextColor(Color.BLACK);
         
@@ -40,8 +44,14 @@ public class OdometerPage extends Activity {
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
             	
-            	if(etOdometer.getText().toString().matches(""))
+            	String input = etOdometer.getText().toString();
+            	Double convertedInput = Double.parseDouble(input);
+            	
+            	if(inputProcessor.isInValidInputEmpty(input))
             		Toast.makeText(getApplicationContext(), "You didn't enter anything!", Toast.LENGTH_LONG).show();
+            	else if(convertedInput <= dbHelper.getLastMileage())
+                	Toast.makeText(getApplicationContext(), "I didn't know Odometers could be turned backwards?", Toast.LENGTH_LONG).show();
+                
             	else
             	{	
             		Intent myIntent = new Intent(view.getContext(), VerificationPage.class);
