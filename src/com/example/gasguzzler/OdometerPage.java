@@ -45,11 +45,10 @@ public class OdometerPage extends Activity {
             public void onClick(View view) {
             	
             	String input = etOdometer.getText().toString();
-            	Double convertedInput = Double.parseDouble(input);
             	
             	if(inputProcessor.isInValidInputEmpty(input))
             		Toast.makeText(getApplicationContext(), "You didn't enter anything!", Toast.LENGTH_LONG).show();
-            	else if(convertedInput <= dbHelper.getLastMileage())
+            	else if(Double.parseDouble(input) <= dbHelper.getLastMileage())
                 	Toast.makeText(getApplicationContext(), "I didn't know Odometers could be turned backwards?", Toast.LENGTH_LONG).show();
                 
             	else
