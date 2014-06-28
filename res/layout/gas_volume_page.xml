@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="140dp"
-        android:background="@drawable/gallons_entry_background"
+        android:background="@drawable/input_field_large"
         android:ems="10"
         android:hint="@string/gas_volume_entry"
         android:inputType="numberDecimal"
@@ -79,5 +79,17 @@
         android:layout_marginBottom="16dp"
         android:src="@drawable/gg_logo" 
         android:contentDescription="@string/logo_text"/>
+
+    <TextView
+        android:id="@+id/volume_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editText_volume"
+        android:layout_marginBottom="6dp"
+        android:layout_alignRight="@+id/editText_volume"
+        android:layout_marginRight="5dp"
+        android:text="@string/gallons"
+        android:textColor="#000000"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

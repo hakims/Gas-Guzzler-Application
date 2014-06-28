@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ggbackground"
+    android:background="@drawable/gg_bg_2"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -17,7 +17,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
         android:scaleType="fitXY"
-        android:src="@drawable/gg_logo" 
+        android:src="@drawable/gg_logo_original" 
         android:contentDescription="@string/logo_text"/>
 
     <TextView
