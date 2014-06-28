@@ -37,7 +37,7 @@
         android:layout_below="@+id/verification_text"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/price_entry_background_small"
+        android:background="@drawable/input_field_small"
         android:ems="10"
         android:hint="@string/gas_price_vEntry"
         android:inputType="numberDecimal"
@@ -50,11 +50,11 @@
         android:layout_alignLeft="@+id/editText_price"
         android:layout_below="@+id/editText_price"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/gallons_entry_background_small"
+        android:background="@drawable/input_field_small"
         android:ems="10"
         android:hint="@string/gas_volume_vEntry"
         android:inputType="numberDecimal"
-        android:paddingLeft="5dp" />
+        android:paddingLeft="7dp" />
 
     <EditText
         android:id="@+id/editText_odometer"
@@ -62,11 +62,11 @@
         android:layout_height="35dp"
         android:layout_alignLeft="@+id/editText_volume"
         android:layout_below="@+id/editText_volume"
-        android:background="@drawable/odometer_entry_background_small"
+        android:background="@drawable/input_field_small"
         android:ems="10"
         android:hint="@string/odometer_vEntry"
         android:inputType="numberDecimal"
-        android:paddingLeft="5dp" >
+        android:paddingLeft="7dp" >
 
         <requestFocus />
     </EditText>
@@ -126,5 +126,41 @@
         android:text="@string/back"
         android:textColor="#00ADA9"
         android:textSize="20sp" />
+    
+    <TextView
+        android:id="@+id/vDollar_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editText_price"
+        android:layout_marginBottom="7dp"
+        android:layout_alignLeft="@+id/editText_price"
+        android:layout_marginLeft="7dp"
+        android:text="@string/dollar_sign"
+        android:textColor="#000000"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/vVolume_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editText_volume"
+        android:layout_marginBottom="7dp"
+        android:layout_alignRight="@+id/editText_volume"
+        android:layout_marginRight="7dp"
+        android:text="@string/gallons"
+        android:textColor="#000000"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/vMiles_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editText_odometer"
+        android:layout_marginBottom="7dp"
+        android:layout_alignRight="@+id/editText_odometer"
+        android:layout_marginRight="7dp"
+        android:text="@string/miles"
+        android:textColor="#000000"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

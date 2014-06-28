@@ -29,7 +29,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="140dp"
-        android:background="@drawable/odometer_entry_background"
+        android:background="@drawable/input_field_large"
         android:ems="10"
         android:hint="@string/odometer_entry"
         android:inputType="numberDecimal"
@@ -37,8 +37,6 @@
 
         <requestFocus />
     </EditText>
-
-
             
     <Button
         android:id="@+id/b_toVerification"
@@ -81,5 +79,17 @@
         android:layout_marginBottom="16dp"
         android:src="@drawable/gg_logo" 
         android:contentDescription="@string/logo_text"/>
+    
+    <TextView
+        android:id="@+id/miles_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editText_odometer"
+        android:layout_marginBottom="6dp"
+        android:layout_alignRight="@+id/editText_odometer"
+        android:layout_marginRight="5dp"
+        android:text="@string/miles"
+        android:textColor="#000000"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

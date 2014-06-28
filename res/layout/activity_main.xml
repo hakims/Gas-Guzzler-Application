@@ -17,7 +17,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
         android:scaleType="fitXY"
-        android:src="@drawable/gg_logo" 
+        android:src="@drawable/gg_logo_original" 
         android:contentDescription="@string/logo_text"/>
 
     <TextView
