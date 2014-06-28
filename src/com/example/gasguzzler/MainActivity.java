@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -29,13 +30,6 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), GasPricePage.class);
                 startActivityForResult(myIntent, 0);
-
-              //  Toast.makeText(getApplicationContext(), "You went to the next page",
-                		//   Toast.LENGTH_LONG).show();
-
-
-              //  Toast.makeText(getApplicationContext(), "You went to the next page",
-                		//   Toast.LENGTH_LONG).show();
             }
 
         });
@@ -46,17 +40,20 @@ public class MainActivity extends Activity {
                 Intent myIntent = new Intent(view.getContext(), GraphPage.class);
                 
                 startActivityForResult(myIntent, 0);
-                //Toast.makeText(getApplicationContext(), "You went to the next page",
-                		   //Toast.LENGTH_LONG).show();
             }
     });
         
         toHistory = (Button) findViewById(R.id.b_toHistory);
         toHistory.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), BrowseHistoryPage.class);
-                
-                startActivityForResult(myIntent, 0);
+
+            	if(database.getNumRows() <=0)
+            		Toast.makeText(getApplicationContext(), "You don't have a history yet, Start Guzzling!", Toast.LENGTH_LONG).show();
+            	else
+            	{
+            		Intent myIntent = new Intent(view.getContext(), BrowseHistoryPage.class);
+            		startActivityForResult(myIntent, 0);
+            	}
             }
     });
     }
