@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="140dp"
-        android:background="@drawable/input_field_large"
+        android:background="@drawable/price_entry_background"
         android:ems="10"
         android:hint="@string/gas_price_entry"
         android:inputType="numberDecimal"
@@ -79,17 +79,5 @@
         android:layout_marginBottom="16dp"
         android:src="@drawable/gg_logo" 
         android:contentDescription="@string/logo_text"/>
-
-    <TextView
-        android:id="@+id/dollar_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editText_price"
-        android:layout_marginBottom="6dp"
-        android:layout_alignLeft="@+id/editText_price"
-        android:layout_marginLeft="10dp"
-        android:text="@string/dollar_sign"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#000000" />
 
 </RelativeLayout>
