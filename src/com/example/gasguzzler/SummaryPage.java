@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -25,7 +26,7 @@ public class SummaryPage extends Activity {
 	TextView tvAvgVol;
 	
 	double avgPrice=0, totalVolume=0;
-	double ppg=0, mpg=0, avgVol=0;
+	double ppg=0, mpg, avgVol=0;
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,16 +35,64 @@ public class SummaryPage extends Activity {
 
         DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext());
     
-        
         totalVolume = dbHelper.getTotalVolume();
         
         ppg = dbHelper.getAveragePrice()/dbHelper.getNumRows();
-       
-        // mpg = implement me
         avgVol = totalVolume/dbHelper.getNumRows();
         
-        dbHelper.close();
         
+        mpg = dbHelper.getAverageMPGS();
+        
+        
+        
+        /*
+        
+        if(dbHelper.getNumRows() <2)
+        {
+        	Log.i("MPGS", "Not enough Entries");
+        }
+        else
+        {
+        	Cursor current = dbHelper.getVolAndOdoStart();
+            current.moveToFirst();
+            
+        	while(current.isAfterLast() == false)
+            {
+        		if(current.isFirst())
+        		{
+        			//do nothing intentionally
+        		}	
+        		else
+        		{
+        			Log.i("Database Testing", "I Made it!?");
+                	Log.i("Database Testing Current", "V: " + current.getDouble(0) + " O: " + current.getDouble(1));
+                    current.moveToPrevious();
+                    
+                    double prevMileage = current.getDouble(1);
+                    
+                    Log.i("Database Testing Current", "V: " + current.getDouble(0) + " O: " + current.getDouble(1));
+                    current.moveToNext();
+                	
+                    double currMileage = current.getDouble(1);
+                	double currVolume = current.getDouble(0);
+
+                    Log.i("Database Testing Current ", "V: " + current.getDouble(0) + " O: " + current.getDouble(1));                	
+                	
+                	Log.i("Summary Testing", "PrevMileage: " + prevMileage + " currMileage: " + currMileage + " currVolume: " + currVolume);
+                	
+                	
+                	mpg = (currMileage - prevMileage) / currVolume;
+                	Log.i("Summary Testing", "MPGS: " + mpg);
+                	
+                
+        		}
+        		
+        		current.moveToNext();
+        	}
+        }	
+        
+        */
+        dbHelper.close();
         
         tvPPG = (TextView) findViewById(R.id.tv_ppgDisplay);
         tvMPG = (TextView) findViewById(R.id.tv_mpgDisplay);
@@ -52,7 +101,11 @@ public class SummaryPage extends Activity {
         DecimalFormat twoDform = new DecimalFormat("#########.##");
         
         String strPPG = String.valueOf(Double.valueOf(twoDform.format(ppg)));
-        String strMPG = String.valueOf(Double.valueOf(twoDform.format(mpg)));
+        String strMPG;
+        if( mpg >0)
+        	strMPG = String.valueOf(Double.valueOf(twoDform.format(mpg)));
+        else
+        	strMPG = "You need at least 2 entries to calculate MPG";
         String strAvgVol = String.valueOf(Double.valueOf(twoDform.format(avgVol)));
         
         tvPPG.setText(strPPG);

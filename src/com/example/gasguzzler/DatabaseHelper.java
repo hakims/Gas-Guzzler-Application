@@ -120,24 +120,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		}
 	}
 	
-	/*  This function is unused and is from a depricated version fo the database
-	public int getRowCount() {
-		
-		String sql = "SELECT " + VEHICLE_COL_DATE  + " FROM " + VEHICLE_TABLE;
-		
-		try {
-			Cursor allRows = db.rawQuery(sql, null);
-			return allRows.getCount();
-		} catch (NullPointerException e) {
-			return -2;
-		} catch (SQLException e) {
-			Log.e(getClass().getSimpleName(), "Error processing " + sql + "\t" + e.getMessage());
-			return -1;
-		} 
-		
-	}
-	
-	*/
 	public double getPrice (String _date) {
 		
 		
@@ -264,8 +246,9 @@ public double getAveragePrice()
 				return 0;
 			} else {
 			
-				Log.i("Database Debug", "the value of avg is: " + avPrice);
 				avPrice += allRows.getDouble(0) / allRows.getDouble(1);
+				Log.i("Database Debug", "the value of avg is: " + avPrice);
+				
 				allRows.moveToNext();
 			}
 		}
@@ -283,7 +266,6 @@ public double getAveragePrice()
 	return avPrice;
 	
 }
-
 
 	public double getTotalVolume()
 	{
@@ -303,8 +285,8 @@ public double getAveragePrice()
 					return 0;
 				} else {
 				
-					Log.i("Database Debug", "the value of total is: " + total);
 					total += allRows.getDouble(0);
+					Log.i("Database Debug", "the value of total is: " + total);
 					allRows.moveToNext();
 				}
 			}
@@ -323,6 +305,116 @@ public double getAveragePrice()
 		
 	}
 
+	public double getAverageMPGS()
+	{
+		String sql = "SELECT " + VEHICLE_COL_REFILLAMOUNT + ", " + VEHICLE_COL_PREVODOMETER + " FROM " + VEHICLE_TABLE;
+		double averageMPG = 0;
+		
+		try {
+	        
+	        if(getNumRows() <2)
+	        {
+	        	Log.i("MPGS", "Not enough Entries");
+	        }
+	        else
+	        {
+	        	Cursor current = db.rawQuery(sql, null);
+	            current.moveToFirst();
+	            
+	        	while(current.isAfterLast() == false)
+	            {
+	        		if(current.isFirst())
+	        		{
+	        			//There are no entries before the first so we can't calculate MPGS
+	        			//Do nothing
+	        		}	
+	        		else
+	        		{
+	        			current.moveToPrevious();
+	                    
+	                    double prevMileage = current.getDouble(1);
+	                    
+	                    Log.i("Database Testing Current", "V: " + current.getDouble(0) + " O: " + current.getDouble(1));
+	                    current.moveToNext();
+	                	
+	                    double currMileage = current.getDouble(1);
+	                	double currVolume = current.getDouble(0);
+
+	                    Log.i("Database Testing Current ", "V: " + current.getDouble(0) + " O: " + current.getDouble(1));                	
+	                	Log.i("Summary Testing", "PrevMileage: " + prevMileage + " currMileage: " + currMileage + " currVolume: " + currVolume);
+	                		                	
+	                	averageMPG += (currMileage - prevMileage) / currVolume;
+	                	Log.i("Summary Testing", "MPGS: " + averageMPG);
+	                	
+	                
+	        		}
+	        		
+	        		current.moveToNext();
+	        	}
+	        }	
+
+			averageMPG = averageMPG / (getNumRows() - 1);
+	        
+			return averageMPG;
+			
+			 
+		}catch (SQLException e) {
+			Log.e(getClass().getSimpleName(), "Unable to process SQL: " + sql);
+			return -1;
+		} catch (Exception e) {
+			Log.e(getClass().getSimpleName(), "Unhandled exception SQL:" + sql);
+			return -1;
+		}
+	}
+	
+	/* Helper function for the OdometerPage class. It is used to make sure 
+	 * the users input mileage is not less than the last mileage stored in the database. 
+	 * Preserves order.
+	 * 
+	 * */
+	public double getLastMileage()
+	{
+		String sql = "SELECT " + VEHICLE_COL_PREVODOMETER + " FROM " + VEHICLE_TABLE;
+		double last;
+		
+		Cursor cur = db.rawQuery(sql, null);
+		cur.moveToLast();
+		if(getNumRows() <= 0 )
+			last = -1;
+		else
+			last = cur.getDouble(0);
+		
+		return last;
+		
+	}
+	
+	
+	
+	/* Calculates MPGS between two refill instances. This assumes that the driver uses ALL the gallons they previously
+	 * purchased, which is a poor assumption.
+	 * 
+	 * In order to use this function you need to initialize previousRefill and currentRefill
+	 * using "SELECT fillup_amount, prevodometer FROM vehicle" 
+	 * The order is important!
+	 * 
+	 */
+	
+	
+	public double getMPGS(Cursor previousRefill, Cursor currentRefill)
+	{
+		double mpgs = 0;
+		
+		double previousMileage = previousRefill.getDouble(1);
+		double currentMileage = currentRefill.getDouble(1);
+		double currentVolume = currentRefill.getDouble(0);
+		
+		mpgs = (currentMileage - previousMileage)/currentVolume; 
+		
+		return mpgs;
+		
+		
+	}
+	
 
 	/**
 	 * Upgrades the database.

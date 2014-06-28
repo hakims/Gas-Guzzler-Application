@@ -6,7 +6,7 @@
     <string name="start_button_custom">Start Guzzling</string>
     <string name="Graph_button_custom">Guzzle Graphs</string>
     <string name="gas_price_entry">Gas Price</string>
-    <string name="gas_price_text">How much gas did you buy today?</string>
+    <string name="gas_price_text">How much did your gas cost today?</string>
     <string name="next_button_custom">Keep Guzzling!</string>
 	<string name="back">Back</string>
 	<string name="history_button_custom">Guzzle History</string>
