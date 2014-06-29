@@ -3,8 +3,10 @@ package com.example.gasguzzler;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -19,7 +21,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         
     	super.onCreate(savedInstanceState);
-    	this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+    	//this.requestWindowFeature(Window.FEATURE_NO_TITLE);
     	setContentView(R.layout.activity_main);
         
         database = new DatabaseHelper (getApplicationContext());
@@ -59,6 +61,49 @@ public class MainActivity extends Activity {
     }
     
 
+    /*
+     * Create options menu
+     * */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+    	getMenuInflater().inflate(R.menu.main_menu, menu);
+    	
+    	return true;
+    }
+    
+    
+    /*
+     * What to do when a menu item is selected
+     * */
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+    	Intent intent;
+    	try
+    	{
+    	
+    		switch(item.getItemId())
+    		{
+    		case R.id.action_aboutGG:
+    			intent = new Intent(this.getApplicationContext(), AboutGG.class);
+    			startActivity(intent);
+    			return super.onOptionsItemSelected(item);
+    			
+    		default:
+    			return super.onOptionsItemSelected(item);
+    		
+    		}
+    	} catch (Exception e)
+    	{
+    		Log.e (getClass().getSimpleName(), "Unable to process menu command");
+    		Toast.makeText(getApplicationContext(), "Unable to process menu command", Toast.LENGTH_SHORT).show();
+    		return false;
+    	}
+    	
+    }
+    
     @Override
 	public void onDestroy() {
 		super.onDestroy();

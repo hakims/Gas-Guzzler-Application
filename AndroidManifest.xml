@@ -13,7 +13,7 @@
 	
     
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="9"
         android:targetSdkVersion="18" />
 
     <application
@@ -41,6 +41,7 @@
         <activity android:name=".GraphPage" android:screenOrientation="portrait"></activity>
         <activity android:name=".QueryDatabase" android:screenOrientation="portrait"></activity>
         <activity android:name=".BrowseHistoryPage" android:screenOrientation="portrait"></activity>
+        <activity android:name=".AboutGG" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
