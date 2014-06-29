@@ -59,7 +59,7 @@ public class SummaryPage extends Activity {
         if( mpg >0)
         	strMPG = String.valueOf(Double.valueOf(twoDform.format(mpg)));
         else
-        	strMPG = "You need at least 2 entries to calculate MPG";
+        	strMPG = "Need more data!";
         String strAvgVol = String.valueOf(Double.valueOf(twoDform.format(avgVol)));
         
         strPPG = "Average PPG:  $" + strPPG;
