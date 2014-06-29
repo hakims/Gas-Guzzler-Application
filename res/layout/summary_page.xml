@@ -66,73 +66,38 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/tv_ppgText"
-        android:layout_width="100dp"
-        android:layout_height="20dp"
-        android:layout_below="@+id/text_summary"
-        android:layout_marginTop="10dp"
-        android:layout_alignLeft="@id/text_summary"
-        android:layout_marginLeft="40dp"
-        android:ems="10"
-        android:gravity="right"
-        android:textSize="16sp"
-        android:text="@string/avg_ppg_summaryText" />
-
-    <TextView
         android:id="@+id/tv_ppgDisplay"
         android:layout_width="100dp"
         android:layout_height="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/text_summary"
-        android:layout_marginTop="10dp"
-        android:layout_alignRight="@+id/text_summary"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/ppg_placeholder_summaryText"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/tv_mpgsText"
-        android:layout_width="105dp"
-        android:layout_height="20dp"
-        android:layout_alignRight="@+id/tv_ppgText"
-        android:layout_below="@+id/tv_ppgText"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:gravity="right"
-        android:text="@string/avg_mpg_summaryText"
         android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tv_mpgDisplay"
         android:layout_width="100dp"
         android:layout_height="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/tv_ppgDisplay"
-        android:layout_marginTop="10dp"
-        android:layout_alignLeft="@id/tv_ppgDisplay"
+        android:layout_marginTop="18dp"
         android:ems="10"
-        android:textSize="16sp"
-        android:hint="@string/mgp_placeholder_summaryText" />
-
-    <TextView
-        android:id="@+id/tv_volumePurchasedText"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:layout_below="@id/tv_mpgsText"
-        android:layout_marginTop="10dp"
-        android:layout_alignRight="@id/tv_mpgsText"
-        android:textSize="16sp"
-        android:gravity="right"
-        android:ems="10"
-        android:text="@string/avg_vol_summaryText" />
+        android:hint="@string/mgp_placeholder_summaryText"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tv_averageVolumeDisplay"
         android:layout_width="100dp"
         android:layout_height="20dp"
-        android:layout_below="@id/tv_mpgDisplay"
-        android:layout_marginTop="10dp"
-        android:layout_alignLeft="@id/tv_mpgDisplay"
-        android:textSize="16sp"
+        android:layout_alignLeft="@+id/tv_mpgDisplay"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tv_mpgDisplay"
         android:ems="10"
-        android:hint="@string/vol_placeholder_summaryText" />
+        android:hint="@string/vol_placeholder_summaryText"
+        android:textSize="16sp" />
 
 </RelativeLayout>

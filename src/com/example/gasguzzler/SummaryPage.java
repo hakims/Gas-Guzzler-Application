@@ -39,13 +39,10 @@ public class SummaryPage extends Activity {
     
         totalVolume = dbHelper.getTotalVolume();
         
+        ///Access the DB and perform necessary calculations
         ppg = dbHelper.getAveragePrice()/dbHelper.getNumRows();
         avgVol = totalVolume/dbHelper.getNumRows();
-        
-        
         mpg = dbHelper.getAverageMPGS();
-        
-        
    
         dbHelper.close();
         
@@ -53,6 +50,8 @@ public class SummaryPage extends Activity {
         tvMPG = (TextView) findViewById(R.id.tv_mpgDisplay);
         tvAvgVol = (TextView) findViewById(R.id.tv_averageVolumeDisplay);
         
+        
+        ///Use DecimalFormat to control input types to only 2 decimal places
         DecimalFormat twoDform = new DecimalFormat("#########.##");
         
         String strPPG = String.valueOf(Double.valueOf(twoDform.format(ppg)));
@@ -62,6 +61,10 @@ public class SummaryPage extends Activity {
         else
         	strMPG = "You need at least 2 entries to calculate MPG";
         String strAvgVol = String.valueOf(Double.valueOf(twoDform.format(avgVol)));
+        
+        strPPG = "Average PPG:  $" + strPPG;
+        strMPG = "Average MPG:  " + strMPG ;
+        strAvgVol = "Average Volume:  " + strAvgVol + " gallons";
         
         tvPPG.setText(strPPG);
         tvMPG.setText(strMPG);
