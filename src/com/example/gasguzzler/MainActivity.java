@@ -16,6 +16,8 @@ public class MainActivity extends Activity {
 	Button next;
 	Button toHistory;
 	Button toGraphs;
+
+	int numRows;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +27,9 @@ public class MainActivity extends Activity {
     	setContentView(R.layout.activity_main);
         
         database = new DatabaseHelper (getApplicationContext());
-
-
+        numRows = database.getNumRows();
+        database.close();
+        
         next = (Button) findViewById(R.id.NewEntryButton);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -49,12 +52,14 @@ public class MainActivity extends Activity {
         toHistory.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
-            	if(database.getNumRows() <=0)
+            	if(numRows <=0)
             		Toast.makeText(getApplicationContext(), "You don't have a history yet, Start Guzzling!", Toast.LENGTH_LONG).show();
             	else
             	{
-            		Intent myIntent = new Intent(view.getContext(), BrowseHistoryPage.class);
-            		startActivityForResult(myIntent, 0);
+            		//Intent myIntent = new Intent(view.getContext(), BrowseHistoryPage.class);
+            		//startActivityForResult(myIntent, 0);
+            		//startActivity(new Intent(MainActivity.this, BrowseHistoryPage.class));
+            		new AsyncCaller(MainActivity.this).execute();
             	}
             }
     });
@@ -113,7 +118,6 @@ public class MainActivity extends Activity {
     @Override
 	public void onDestroy() {
 		super.onDestroy();
-		database.close();
 	}
 
     

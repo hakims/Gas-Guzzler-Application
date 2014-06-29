@@ -99,8 +99,10 @@ public class SummaryPage extends Activity {
         viewHistory = (Button) findViewById(R.id.b_toHistory);
         viewHistory.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), BrowseHistoryPage.class);
-                startActivityForResult(myIntent, 0);
+               // Intent myIntent = new Intent(view.getContext(), BrowseHistoryPage.class);
+               // startActivityForResult(myIntent, 0);
+                
+                new AsyncCaller(SummaryPage.this).execute();
             }
     });
     
@@ -119,7 +121,7 @@ public class SummaryPage extends Activity {
     @Override
 	public void onDestroy() {
 		super.onDestroy();
-		dbHelper.close();
+	
 	}
 }
 

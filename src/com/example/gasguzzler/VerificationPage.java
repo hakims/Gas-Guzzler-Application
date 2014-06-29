@@ -94,6 +94,13 @@ public class VerificationPage extends Activity {
             	
             	
             		dbHelper.insertData(p, v, o, date);
+            		
+            		/*
+            		for(int i =0;i<75;i++)
+            		{
+            			dbHelper.insertData(p, v, o, date);
+            		}
+            		*/
             	
             		dbHelper.close();
             		Intent myIntent = new Intent(view.getContext(), SummaryPage.class);

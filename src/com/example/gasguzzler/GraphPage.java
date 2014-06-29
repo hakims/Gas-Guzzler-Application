@@ -259,6 +259,8 @@ public class GraphPage extends Activity {
         	
       */
         	
+    	db.close();
+    	dbHelper.close();
     }
     
     @Override
