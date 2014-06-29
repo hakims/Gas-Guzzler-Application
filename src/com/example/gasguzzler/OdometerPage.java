@@ -18,6 +18,7 @@ public class OdometerPage extends Activity {
 	EditText etOdometer;
 
     final DataProcessor inputProcessor = new DataProcessor();
+    DatabaseHelper dbHelper;
 	
 	/** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class OdometerPage extends Activity {
     	super.onCreate(savedInstanceState);
         setContentView(R.layout.odometer_page);
 
-        final DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext());
+        dbHelper = new DatabaseHelper(getApplicationContext());
         
         etOdometer = (EditText) findViewById(R.id.editText_odometer);
         etOdometer.setTextColor(Color.BLACK);
@@ -63,5 +64,11 @@ public class OdometerPage extends Activity {
     });
     
     }
+    
+    @Override
+	public void onDestroy() {
+		super.onDestroy();
+		dbHelper.close();
+	}
     
 }

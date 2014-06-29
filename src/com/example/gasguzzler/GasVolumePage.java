@@ -63,6 +63,10 @@ public class GasVolumePage extends Activity {
     
     }
     
+    @Override
+	public void onDestroy() {
+		super.onDestroy();
+	}
 }
 
 

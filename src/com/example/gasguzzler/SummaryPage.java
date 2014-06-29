@@ -28,12 +28,14 @@ public class SummaryPage extends Activity {
 	double avgPrice=0, totalVolume=0;
 	double ppg=0, mpg, avgVol=0;
 	
+	DatabaseHelper dbHelper;
+	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.summary_page);
 
-        DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext());
+        dbHelper = new DatabaseHelper(getApplicationContext());
     
         totalVolume = dbHelper.getTotalVolume();
         
@@ -44,54 +46,7 @@ public class SummaryPage extends Activity {
         mpg = dbHelper.getAverageMPGS();
         
         
-        
-        /*
-        
-        if(dbHelper.getNumRows() <2)
-        {
-        	Log.i("MPGS", "Not enough Entries");
-        }
-        else
-        {
-        	Cursor current = dbHelper.getVolAndOdoStart();
-            current.moveToFirst();
-            
-        	while(current.isAfterLast() == false)
-            {
-        		if(current.isFirst())
-        		{
-        			//do nothing intentionally
-        		}	
-        		else
-        		{
-        			Log.i("Database Testing", "I Made it!?");
-                	Log.i("Database Testing Current", "V: " + current.getDouble(0) + " O: " + current.getDouble(1));
-                    current.moveToPrevious();
-                    
-                    double prevMileage = current.getDouble(1);
-                    
-                    Log.i("Database Testing Current", "V: " + current.getDouble(0) + " O: " + current.getDouble(1));
-                    current.moveToNext();
-                	
-                    double currMileage = current.getDouble(1);
-                	double currVolume = current.getDouble(0);
-
-                    Log.i("Database Testing Current ", "V: " + current.getDouble(0) + " O: " + current.getDouble(1));                	
-                	
-                	Log.i("Summary Testing", "PrevMileage: " + prevMileage + " currMileage: " + currMileage + " currVolume: " + currVolume);
-                	
-                	
-                	mpg = (currMileage - prevMileage) / currVolume;
-                	Log.i("Summary Testing", "MPGS: " + mpg);
-                	
-                
-        		}
-        		
-        		current.moveToNext();
-        	}
-        }	
-        
-        */
+   
         dbHelper.close();
         
         tvPPG = (TextView) findViewById(R.id.tv_ppgDisplay);
@@ -157,5 +112,11 @@ public class SummaryPage extends Activity {
         startActivityForResult(myIntent, 0);
     }
     
+    
+    @Override
+	public void onDestroy() {
+		super.onDestroy();
+		dbHelper.close();
+	}
 }
 

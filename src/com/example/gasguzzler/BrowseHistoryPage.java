@@ -15,7 +15,6 @@ public class BrowseHistoryPage extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.browse_history_page);
 	
-	
 	TableLayout table = (TableLayout) findViewById(R.id.browseTable);
 	TableRow rowHeader, rowX;
 	

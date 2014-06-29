@@ -60,4 +60,10 @@ public class GasPricePage extends Activity {
     
     }
     
+    @Override
+	public void onDestroy() {
+		super.onDestroy();
+		
+	}
+    
 }

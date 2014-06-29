@@ -29,6 +29,8 @@ public class VerificationPage extends Activity {
 	EditText etVolume;
 	EditText etOdometer;
 	
+	DatabaseHelper dbHelper;
+	
 	final DataProcessor inputProcessor = new DataProcessor();
 	
 	/** Called when the activity is first created. */
@@ -37,7 +39,7 @@ public class VerificationPage extends Activity {
     	this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.verification_page);
 
-        final DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext()); 
+       dbHelper = new DatabaseHelper(getApplicationContext()); 
         
        price = getIntent().getStringExtra("STRING_PRICE");
        volume = getIntent().getStringExtra("STRING_VOLUME");
