@@ -5,7 +5,7 @@ Gas Guzzler is an Android application that helps you store information after eve
 
 Repo Orginization:
 
-  Our repository is organized like an ordinary andriod application.  All java files used in the project are stored in the source folder ("src").  All of our XML layouts are in the res/layout folder.  Our Doxygen notes our in our main directory alongside our repo.  
+  Our repository is organized like an ordinary andriod application.  All java files used in the project are stored in the source folder ("src").  All of our XML layouts are in the res/layout folder. To run the app you will need to have Eclipse with the Android Developement Tools plugin. To build the code, clone this repo and import the folder into Eclipse then select the GasGuzzler project and click 'run'. You can generate documentation by running Doxygen on the "src" folder.
 
 Developed By:
 Ali Hakimi
