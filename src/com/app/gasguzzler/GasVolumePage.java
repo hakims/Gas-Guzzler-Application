@@ -1,4 +1,4 @@
-package com.example.gasguzzler;
+package com.app.gasguzzler;
 
 
 import android.app.Activity;
@@ -11,27 +11,33 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class OdometerPage extends Activity {
+
+/**
+ * 
+ * @author Hakims
+ * Configures the page where users input the amount of volume purchased. Makes sure inputs are valid then sends
+ * them to the VerificationPage
+ */
+public class GasVolumePage extends Activity {
 	
 	Button back;
 	Button next;
-	EditText etOdometer;
+	EditText etVolume;
 
     final DataProcessor inputProcessor = new DataProcessor();
-    DatabaseHelper dbHelper;
+
 	
 	/** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
-    	this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-    	super.onCreate(savedInstanceState);
-        setContentView(R.layout.odometer_page);
+        super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.gas_volume_page);
+        
 
-        dbHelper = new DatabaseHelper(getApplicationContext());
+        etVolume = (EditText) findViewById(R.id.editText_volume);
+        etVolume.setTextColor(Color.BLACK);
         
-        etOdometer = (EditText) findViewById(R.id.editText_odometer);
-        etOdometer.setTextColor(Color.BLACK);
-        
-        back = (Button) findViewById(R.id.b_backtoVolume);
+        back = (Button) findViewById(R.id.b_backToPrice);
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent();
@@ -41,25 +47,24 @@ public class OdometerPage extends Activity {
 
         });
         
-        next = (Button) findViewById(R.id.b_toVerification);
+        next = (Button) findViewById(R.id.b_toOdo);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-            	
-            	String input = etOdometer.getText().toString();
+            
+            	String input = etVolume.getText().toString();
             	
             	if(inputProcessor.isInValidInputEmpty(input))
             		Toast.makeText(getApplicationContext(), "You didn't enter anything!", Toast.LENGTH_LONG).show();
-            	else if(Double.parseDouble(input) <= dbHelper.getLastMileage())
-                	Toast.makeText(getApplicationContext(), "I didn't know Odometers could be turned backwards?", Toast.LENGTH_LONG).show();
-                
-            	else
-            	{	
-            		Intent myIntent = new Intent(view.getContext(), VerificationPage.class);
-            		myIntent.putExtra("STRING_ODOMETER", etOdometer.getText().toString());
+            	else if(inputProcessor.isInValidInputZero(input))
+                	Toast.makeText(getApplicationContext(), "Don't get smart with me!", Toast.LENGTH_LONG).show();
+                else
+            	{
+            		Intent myIntent = new Intent(view.getContext(), OdometerPage.class);
+            		myIntent.putExtra("STRING_VOLUME", etVolume.getText().toString());
             		myIntent.putExtra("STRING_PRICE", getIntent().getStringExtra("STRING_PRICE"));
-            		myIntent.putExtra("STRING_VOLUME", getIntent().getStringExtra("STRING_VOLUME"));
+                
             		startActivityForResult(myIntent, 0);
-            	}	
+            	}
             }
     });
     
@@ -68,7 +73,7 @@ public class OdometerPage extends Activity {
     @Override
 	public void onDestroy() {
 		super.onDestroy();
-		dbHelper.close();
 	}
-    
 }
+
+

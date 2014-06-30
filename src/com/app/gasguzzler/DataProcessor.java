@@ -1,5 +1,12 @@
-package com.example.gasguzzler;
+package com.app.gasguzzler;
 
+
+/**
+ * 
+ * @author Hakims
+ *
+ * The purpose of this class is to handle user inputs and verify they are valid nonzero, nonempty entries.	
+ */
 
 public class DataProcessor {
 

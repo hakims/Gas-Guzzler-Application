@@ -1,15 +1,29 @@
-package com.example.gasguzzler;
+package com.app.gasguzzler;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 
+
+/**
+ * @author Hakims
+ * Called whenever a user tries to access the BrowseHistory Page. Sets up a new AsyncCaller with the 
+ * activity being called from, displays a waiting ProgressDialog (loading wheel), starts the BrowseHistoryPage 
+ * and stops showing the loading wheel when BrowseHistory has finished loading everything from the database. 
+ * 
+ ***/
+
 public class AsyncCaller extends AsyncTask<Void, Void, Void>
 {
     ProgressDialog pdLoading;
     public Activity activity;
     
+    
+    /** This constructor should be called by doing AsyncCaller(this) from
+     *  inside the activity you are switching from. 
+     * 
+     */
     public AsyncCaller(Activity a)
     {
     	this.activity = a;

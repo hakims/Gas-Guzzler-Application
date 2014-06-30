@@ -1,4 +1,4 @@
-package com.example.gasguzzler;
+package com.app.gasguzzler;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -6,6 +6,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+/**
+ * 
+ * @author Hakims
+ * This is a depricated Activity that was used to test proper functionality of database storage
+ */
 
 public class QueryDatabase extends MainActivity{
 

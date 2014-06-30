@@ -1,4 +1,4 @@
-package com.example.gasguzzler;
+package com.app.gasguzzler;
 
 
 import android.content.ContentValues;
@@ -57,8 +57,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		db = this.getWritableDatabase();
 		
 	}
-	
-	
+		
 	public SQLiteDatabase getDatabase()
 	{
 		return db;	
@@ -98,6 +97,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	
 	}
 	
+	/**
+	 * Inserts data into the database based off of the input paramters
+	 * 
+	 */
+	
 	
 	public void insertData (double _price, double _amount, double _odometer, String _date) {
 		ContentValues values = null;
@@ -119,6 +123,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 			Log.e(getClass().getSimpleName(), e.getMessage());
 		}
 	}
+	
+	/**
+	 * Searches the database for the price payed on a certain date.
+	 */
 	
 	public double getPrice (String _date) {
 		
@@ -150,6 +158,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		
 	}
 
+/**
+ * Searches the database for the amount of gas purchased on a certain date.	
+ */
+	
 public double getVolume (String _date) {
 		
 		
@@ -180,6 +192,10 @@ public double getVolume (String _date) {
 		
 	}
 	
+/**
+ * Searches the database for the Odometer reading  on a certain date.
+ */
+
 public double getOdometer (String _date) {
 	
 	
@@ -210,6 +226,12 @@ public double getOdometer (String _date) {
 	
 }
 
+/**
+ * 
+ * @return the number of rows in the database. Since we only allow insertion with all 4 entries, it is assumed 
+ * that the number of rows will be equivalent across all columns of the database
+ */
+
 public int getNumRows()
 {
 	int rowCount = 0;
@@ -228,7 +250,10 @@ public int getNumRows()
 	return rowCount;
 }
 
-public double getAveragePrice()
+/**
+ * Go through the entire database and calculate the average price per gallon.  
+ */
+public double getAveragePricePerGallon()
 {
 	double avPrice = 0;
 	
@@ -263,11 +288,15 @@ public double getAveragePrice()
 	}
 	
 	
-	return avPrice;
+	return avPrice/getNumRows();
 	
 }
 
-	public double getTotalVolume()
+/**
+ * 
+ * @return the average amount of gas purchased. Sums all volume entries and divides by the number of rows. 
+ */
+	public double getAverageVolume()
 	{
 		double total = 0;
 		
@@ -301,10 +330,16 @@ public double getAveragePrice()
 		}
 		
 		
-		return total;
+		return total/getNumRows();
 		
 	}
 
+	/**
+	 * 
+	 * @return the calculated average for miles per gallon. This calculation requires at least 2 data 
+	 * entries, otherwise it will return 0.
+	 */
+	
 	public double getAverageMPGS()
 	{
 		String sql = "SELECT " + VEHICLE_COL_REFILLAMOUNT + ", " + VEHICLE_COL_PREVODOMETER + " FROM " + VEHICLE_TABLE;
@@ -367,11 +402,11 @@ public double getAveragePrice()
 		}
 	}
 	
-	/* Helper function for the OdometerPage class. It is used to make sure 
+	/** Helper function for the OdometerPage class. It is used to make sure 
 	 * the users input mileage is not less than the last mileage stored in the database. 
 	 * Preserves order.
 	 * 
-	 * */
+	 */
 	public double getLastMileage()
 	{
 		String sql = "SELECT " + VEHICLE_COL_PREVODOMETER + " FROM " + VEHICLE_TABLE;
@@ -390,7 +425,7 @@ public double getAveragePrice()
 	
 	
 	
-	/* Calculates MPGS between two refill instances. This assumes that the driver uses ALL the gallons they previously
+	/** Calculates MPGS between two refill instances. This assumes that the driver uses ALL the gallons they previously
 	 * purchased, which is a poor assumption.
 	 * 
 	 * In order to use this function you need to initialize previousRefill and currentRefill

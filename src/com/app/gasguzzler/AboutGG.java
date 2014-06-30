@@ -1,8 +1,13 @@
-package com.example.gasguzzler;
+package com.app.gasguzzler;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
+
+/**
+ * @author Hakims
+ * This Activity is called to display information about the app and its developers
+ * **/
 
 public class AboutGG extends Activity {
 

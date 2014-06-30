@@ -1,4 +1,4 @@
-package com.example.gasguzzler;
+package com.app.gasguzzler;
 
 
 import java.text.SimpleDateFormat;
@@ -16,6 +16,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * 
+ * @author Hakims
+ *	Receives all the users input and redisplays it to them. If they change anything, capture the changes and store them in the database. 
+ *  Preserve all previous input checking tests
+ */
 
 public class VerificationPage extends Activity {
 	
@@ -95,13 +101,6 @@ public class VerificationPage extends Activity {
             	
             		dbHelper.insertData(p, v, o, date);
             		
-            		/*
-            		for(int i =0;i<75;i++)
-            		{
-            			dbHelper.insertData(p, v, o, date);
-            		}
-            		*/
-            	
             		dbHelper.close();
             		Intent myIntent = new Intent(view.getContext(), SummaryPage.class);
             		startActivityForResult(myIntent, 0);

@@ -3,7 +3,7 @@
 // http://stackoverflow.com/questions/5357455/limit-decimal-places-in-android-edittext
 
 
-package com.example.gasguzzler;
+package com.app.gasguzzler;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,6 +11,12 @@ import java.util.regex.Pattern;
 import android.text.InputFilter;
 import android.text.Spanned;
 
+/**
+ * 
+ * @author Hakims
+ *
+ * This class uses regex to limit the input on the GasPricePage to only valid monetary values ie $243.23
+ */
 public class DecimalDigitsInputFilter implements InputFilter {
 
 Pattern mPattern;

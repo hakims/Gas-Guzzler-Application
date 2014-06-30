@@ -1,4 +1,4 @@
-package com.example.gasguzzler;
+package com.app.gasguzzler;
 
 import android.app.Activity;
 import android.database.Cursor;

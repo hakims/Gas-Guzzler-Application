@@ -1,4 +1,4 @@
-package com.example.gasguzzler;
+package com.app.gasguzzler;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,14 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+/**
+ * 
+ * @author Hakims
+ * Configures the page where users enter the amount of money they spent at the pump.
+ * Upon clicking next the activity sends an intent containing the value entered which will be received
+ * by the VerificationPage
+ */
 
 public class GasPricePage extends Activity {
 

@@ -1,4 +1,4 @@
-package com.example.gasguzzler;
+package com.app.gasguzzler;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -10,6 +10,15 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+
+/**
+ * 
+ * @author Hakims
+ * 
+ * This class sets up the TableView that displays all the users past entries 
+ * into the database
+ *
+ */
 public class BrowseHistoryPage extends Activity{
 
 	DatabaseHelper dbHelper;
@@ -46,6 +55,10 @@ public class BrowseHistoryPage extends Activity{
 		table.addView(rowHeader);
 		table.addView(rowX);
 		
+		/**
+		 * Load the Database and use the cursor to iterate through all the entries.
+		 * Load the values in each column and append them to the TableView
+		 */
 		
 		dbHelper = new DatabaseHelper(getApplicationContext());
 	    SQLiteDatabase db = dbHelper.getDatabase();
@@ -74,7 +87,7 @@ public class BrowseHistoryPage extends Activity{
 			    date.setText(dbDate.subSequence(0, 11) + "     ");
 			    price.setText(String.valueOf(dbPrice) + "     ");
 			    volume.setText("   " + String.valueOf(dbVolume) + "     ");
-			    odometer.setText("     " + String.valueOf(dbOdo) + "     ");
+			    odometer.setText("    " + String.valueOf(dbOdo) + "     ");
 			    
 			    rowX.addView(date);
 			    rowX.addView(price);
@@ -93,9 +106,6 @@ public class BrowseHistoryPage extends Activity{
     @Override
     protected void onResume() {
     	super.onResume();
-
-       // new AsyncCaller(this).execute();
-
     }
     
     @Override

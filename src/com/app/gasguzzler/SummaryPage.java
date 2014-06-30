@@ -1,4 +1,4 @@
-package com.example.gasguzzler;
+package com.app.gasguzzler;
 
 
 import java.text.DecimalFormat;
@@ -15,6 +15,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * 
+ * @author Hakims
+ *
+ * Page that displays all of the database calculations to the user.
+ * Provides buttons to see graphs and history.
+ */
 public class SummaryPage extends Activity {
 	/** Called when the activity is first created. */
 	
@@ -24,9 +31,7 @@ public class SummaryPage extends Activity {
 	TextView tvPPG;
 	TextView tvMPG;
 	TextView tvAvgVol;
-	
-	double avgPrice=0, totalVolume=0;
-	double ppg=0, mpg, avgVol=0;
+	double ppg, mpg, avgVol;
 	
 	DatabaseHelper dbHelper;
 	
@@ -36,12 +41,10 @@ public class SummaryPage extends Activity {
         setContentView(R.layout.summary_page);
 
         dbHelper = new DatabaseHelper(getApplicationContext());
-    
-        totalVolume = dbHelper.getTotalVolume();
         
         ///Access the DB and perform necessary calculations
-        ppg = dbHelper.getAveragePrice()/dbHelper.getNumRows();
-        avgVol = totalVolume/dbHelper.getNumRows();
+        ppg = dbHelper.getAveragePricePerGallon();
+        avgVol = dbHelper.getAverageVolume();
         mpg = dbHelper.getAverageMPGS();
    
         dbHelper.close();

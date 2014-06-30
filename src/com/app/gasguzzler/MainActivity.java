@@ -1,4 +1,4 @@
-package com.example.gasguzzler;
+package com.app.gasguzzler;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+
+/**
+ * 
+ * @author Hakims
+ * This activity is the homescreen page and is where the database is first instantiated if the app has never been run before. 
+ * Builds a menu button that goes to AboutGG and includes buttons that allow users to move to their history, graphs, and enter new data
+ */
 public class MainActivity extends Activity {
 
 	DatabaseHelper database;
