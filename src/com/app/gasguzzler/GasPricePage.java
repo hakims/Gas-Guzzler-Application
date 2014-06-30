@@ -14,6 +14,7 @@ import android.widget.Toast;
 /**
  * 
  * @author Hakims
+ * 
  * Configures the page where users enter the amount of money they spent at the pump.
  * Upon clicking next the activity sends an intent containing the value entered which will be received
  * by the VerificationPage

@@ -98,10 +98,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 	
 	/**
-	 * Inserts data into the database based off of the input paramters
+	 * Inserts data into the database 
+	 * @param _price : Amount Spent at the pump
+	 * @param _amount : Amount of Gas Purchased
+	 * @param _odomoter : Odometer Reading at that point of purchase
+	 * @param _date : Date the user is refilling
 	 * 
+	 * @return void
 	 */
-	
 	
 	public void insertData (double _price, double _amount, double _odometer, String _date) {
 		ContentValues values = null;
@@ -125,7 +129,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 	
 	/**
-	 * Searches the database for the price payed on a certain date.
+	 * @return Price payed on a certain date.
+	 * @param _date : Date for which you're searching the price for
 	 */
 	
 	public double getPrice (String _date) {
@@ -159,7 +164,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 
 /**
- * Searches the database for the amount of gas purchased on a certain date.	
+ * @return Amount of gas purchased on a certain date.
+ * @param _date : Date for which you're searching the price for	
  */
 	
 public double getVolume (String _date) {
@@ -193,7 +199,8 @@ public double getVolume (String _date) {
 	}
 	
 /**
- * Searches the database for the Odometer reading  on a certain date.
+ * @return Odometer Reading for specified date
+ * @param _date : Date for which you're searching the price for
  */
 
 public double getOdometer (String _date) {
@@ -228,7 +235,7 @@ public double getOdometer (String _date) {
 
 /**
  * 
- * @return the number of rows in the database. Since we only allow insertion with all 4 entries, it is assumed 
+ * @return number of rows in the database. Since we only allow insertion with all 4 entries, it is assumed 
  * that the number of rows will be equivalent across all columns of the database
  */
 
@@ -251,7 +258,9 @@ public int getNumRows()
 }
 
 /**
- * Go through the entire database and calculate the average price per gallon.  
+ * @return Average price per gallon.
+ * 
+ * 
  */
 public double getAveragePricePerGallon()
 {
@@ -294,7 +303,7 @@ public double getAveragePricePerGallon()
 
 /**
  * 
- * @return the average amount of gas purchased. Sums all volume entries and divides by the number of rows. 
+ * @return Average amount of gas purchased. Sums all volume entries and divides by the number of rows. 
  */
 	public double getAverageVolume()
 	{
@@ -336,7 +345,7 @@ public double getAveragePricePerGallon()
 
 	/**
 	 * 
-	 * @return the calculated average for miles per gallon. This calculation requires at least 2 data 
+	 * @return Calculated average for miles per gallon. This calculation requires at least 2 data 
 	 * entries, otherwise it will return 0.
 	 */
 	
@@ -406,6 +415,7 @@ public double getAveragePricePerGallon()
 	 * the users input mileage is not less than the last mileage stored in the database. 
 	 * Preserves order.
 	 * 
+	 * @return Last mileage entry in the database
 	 */
 	public double getLastMileage()
 	{
@@ -432,8 +442,9 @@ public double getAveragePricePerGallon()
 	 * using "SELECT fillup_amount, prevodometer FROM vehicle" 
 	 * The order is important!
 	 * 
+	 * @return Miles Per Gallon between two entries
+	 * @deprecated
 	 */
-	
 	
 	public double getMPGS(Cursor previousRefill, Cursor currentRefill)
 	{
@@ -446,7 +457,6 @@ public double getAveragePricePerGallon()
 		mpgs = (currentMileage - previousMileage)/currentVolume; 
 		
 		return mpgs;
-		
 		
 	}
 	

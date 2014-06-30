@@ -14,18 +14,20 @@ public class DataProcessor {
 	{	
 	}
 	
-	/*
-	 * Helper function to process user inputs. Return true
-	 * if the input is empty 
+	/**
+	 * Helper function to process user inputs
+	 * @param input: input to be processed
+	 * @return true if input is empty
 	 * */
 	public boolean isInValidInputEmpty(String input)
 	{
 		return input.matches("");
 	}
 	
-	/*
-	 * Helper function to process user inputs. Return true
-	 * if the input is Zero 
+	/**
+	 * Helper function to process user inputs
+	 * @param input: input to be processed
+	 * @return true if input is 0
 	 * */
 	public boolean isInValidInputZero(String input)
 	{

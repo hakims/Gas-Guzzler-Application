@@ -10,6 +10,7 @@ import android.widget.Toast;
 /**
  * 
  * @author Hakims
+ * @deprecated
  * This is a depricated Activity that was used to test proper functionality of database storage
  */
 

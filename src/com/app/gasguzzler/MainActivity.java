@@ -49,9 +49,16 @@ public class MainActivity extends Activity {
         toGraphs = (Button) findViewById(R.id.b_toGraphs);
         toGraphs.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), GraphPage.class);
                 
-                startActivityForResult(myIntent, 0);
+            	if(numRows <=1)
+            	{
+            		Toast.makeText(getApplicationContext(), "You don't have enough data points yet, Start Guzzling!", Toast.LENGTH_LONG).show();
+            	}
+            	else
+            	{
+            		Intent myIntent = new Intent(view.getContext(), GraphPage.class);
+            		startActivityForResult(myIntent, 0);
+            	}
             }
     });
         

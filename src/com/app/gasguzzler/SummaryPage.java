@@ -32,7 +32,7 @@ public class SummaryPage extends Activity {
 	TextView tvMPG;
 	TextView tvAvgVol;
 	double ppg, mpg, avgVol;
-	
+	int numRows;
 	DatabaseHelper dbHelper;
 	
     public void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,7 @@ public class SummaryPage extends Activity {
         setContentView(R.layout.summary_page);
 
         dbHelper = new DatabaseHelper(getApplicationContext());
+        numRows = dbHelper.getNumRows();
         
         ///Access the DB and perform necessary calculations
         ppg = dbHelper.getAveragePricePerGallon();
@@ -92,8 +93,15 @@ public class SummaryPage extends Activity {
          viewGraphs.setOnClickListener(new View.OnClickListener() {
          
         	 public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), GraphPage.class);
-                startActivityForResult(myIntent, 0);
+        		 if(numRows <=1)
+             	{
+             		Toast.makeText(getApplicationContext(), "You don't have enough data points yet, Start Guzzling!", Toast.LENGTH_LONG).show();
+             	}
+             	else
+             	{
+             		Intent myIntent = new Intent(view.getContext(), GraphPage.class);
+             		startActivityForResult(myIntent, 0);
+             	}
             }
         });
       

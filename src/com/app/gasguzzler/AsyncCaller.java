@@ -20,8 +20,10 @@ public class AsyncCaller extends AsyncTask<Void, Void, Void>
     public Activity activity;
     
     
-    /** This constructor should be called by doing AsyncCaller(this) from
-     *  inside the activity you are switching from. 
+    /**
+     * 
+     * @param a : the activity being passed in. This should be the same activity that you are calling from. Instantiate this 
+     * by doing AsyncCaller(this)
      * 
      */
     public AsyncCaller(Activity a)
