@@ -36,9 +36,9 @@ public class GraphPage extends Activity {
     	
     	
     	
-    	LineGraphView mpgGraphView = new LineGraphView(this, "Price Per Gallon");
-    	mpgGraphView.setVerticalLabels(new String[] { "60", "50", "40", "30",
-                "20", "10", "0"});
+    	LineGraphView ppgGraphView = new LineGraphView(this, "Price Per Gallon");
+    	ppgGraphView.setVerticalLabels(new String[] { "6", "5", "4", "3",
+                "2", "1", "0"});
     	
         
         GraphViewSeriesStyle seriesStyle = new GraphViewSeriesStyle();
@@ -50,7 +50,7 @@ public class GraphPage extends Activity {
                 	{ 	
                     });
         
-        mpgGraphView.setCustomLabelFormatter(new CustomLabelFormatter() {
+        ppgGraphView.setCustomLabelFormatter(new CustomLabelFormatter() {
       	  @Override
       	  public String formatLabel(double value, boolean isValueX) {
       	    if (isValueX) {
@@ -79,14 +79,14 @@ public class GraphPage extends Activity {
          * This paragraph is in charge of setting all the attributes of the graphView.  It sets bounds on 
          * the Y axis.  Sets the viewport, Gridcolor, label color, and adds it to the layout. 
          */
-        mpgGraphView.setManualYAxisBounds(60, 0);
-        mpgGraphView.addSeries(exampleSeries2);
-        mpgGraphView.setViewPort(0,6);
-        mpgGraphView.getGraphViewStyle().setGridColor(Color.DKGRAY);
-        mpgGraphView.getGraphViewStyle().setHorizontalLabelsColor(Color.WHITE);
-        mpgGraphView.getGraphViewStyle().setVerticalLabelsColor(Color.WHITE);
+        ppgGraphView.setManualYAxisBounds(20, 0);
+        ppgGraphView.addSeries(exampleSeries2);
+        ppgGraphView.setViewPort(0,6);
+        ppgGraphView.getGraphViewStyle().setGridColor(Color.DKGRAY);
+        ppgGraphView.getGraphViewStyle().setHorizontalLabelsColor(Color.WHITE);
+        ppgGraphView.getGraphViewStyle().setVerticalLabelsColor(Color.WHITE);
         LinearLayout layout = (LinearLayout) findViewById(R.id.graph_pageLayout1);  
-    	layout.addView(mpgGraphView); 
+    	layout.addView(ppgGraphView); 
     	
     	/*
     	 * The paragraph below is a loop that appends each new Gas Guzzle entry onto our graph by looping
