@@ -1,6 +1,8 @@
 package com.app.gasguzzler;
 
 
+import java.text.DecimalFormat;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -16,6 +18,8 @@ import android.util.Log;
  *@author Ali Hakimi
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
+	
+	DecimalFormat twoDform = new DecimalFormat("#########.##");
 
 	/**
 	 * Database version - change to upgrade
@@ -538,8 +542,11 @@ public double getAveragePricePerGallon()
 		return 0;
 	}
 	
+	avPrice = avPrice/getNumRows();
 	
-	return avPrice/getNumRows();
+	avPrice = Double.valueOf(twoDform.format(avPrice));
+	
+	return avPrice;
 	
 }
 
@@ -580,8 +587,11 @@ public double getAveragePricePerGallon()
 			return 0;
 		}
 		
+		total = total/getNumRows();
 		
-		return total/getNumRows();
+		total = Double.valueOf(twoDform.format(total));
+		
+		return total;
 		
 	}
 
@@ -620,17 +630,17 @@ public double getAveragePricePerGallon()
 	                    
 	                    double prevMileage = current.getDouble(1);
 	                    
-	                    Log.i("Database Testing Current", "V: " + current.getDouble(0) + " O: " + current.getDouble(1));
+	               //   Log.i("Database Testing Current", "V: " + current.getDouble(0) + " O: " + current.getDouble(1));
 	                    current.moveToNext();
 	                	
 	                    double currMileage = current.getDouble(1);
 	                	double currVolume = current.getDouble(0);
 
-	                    Log.i("Database Testing Current ", "V: " + current.getDouble(0) + " O: " + current.getDouble(1));                	
-	                	Log.i("Summary Testing", "PrevMileage: " + prevMileage + " currMileage: " + currMileage + " currVolume: " + currVolume);
+	                //  Log.i("Database Testing Current ", "V: " + current.getDouble(0) + " O: " + current.getDouble(1));                	
+	                //	Log.i("Summary Testing", "PrevMileage: " + prevMileage + " currMileage: " + currMileage + " currVolume: " + currVolume);
 	                		                	
 	                	averageMPG += (currMileage - prevMileage) / currVolume;
-	                	Log.i("Summary Testing", "MPGS: " + averageMPG);
+	                //	Log.i("Summary Testing", "MPGS: " + averageMPG);
 	                	
 	                
 	        		}
@@ -641,6 +651,8 @@ public double getAveragePricePerGallon()
 
 			averageMPG = averageMPG / (getNumRows() - 1);
 	        
+			averageMPG = Double.valueOf(twoDform.format(averageMPG));
+			
 			return averageMPG;
 			
 			 

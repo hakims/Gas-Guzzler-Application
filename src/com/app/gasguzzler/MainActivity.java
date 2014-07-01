@@ -36,7 +36,7 @@ public class MainActivity extends Activity {
         database = new DatabaseHelper (getApplicationContext());
         
         ///The next line is for demo purposes only. Comment it out otherwise. 
-        database.insertDefaults();
+        //database.insertDefaults();
         
         numRows = database.getNumRows();
         database.close();
