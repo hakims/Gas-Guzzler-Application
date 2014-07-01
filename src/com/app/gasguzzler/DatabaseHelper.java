@@ -3,11 +3,11 @@ package com.app.gasguzzler;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import android.database.Cursor;
-import android.database.SQLException;
 
 /**
  * This class is used to create a SQLite Database we will interact with to store all the users necessary data
@@ -64,6 +64,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 	
 	/**
+	 * @return void
+	 * This is used for testing purposes.
+	 * 
+	 */
+	
+	public void eraseDBContents()
+	{
+	    // db.delete(String tableName, String whereClause, String[] whereArgs);
+	    // If whereClause is null, it will delete all rows.
+	    db.delete(VEHICLE_TABLE, null, null);
+	   // db.delete(VEHICLE_COL_REFILLAMOUNT, null, null);
+	   // db.delete(VEHICLE_COL_PREVODOMETER, null, null);
+	   // db.delete(VEHICLE_COL_DATE, null, null);
+	}
+	
+	/**
 	 * Creates the database.  It is only called when there is a new version passed into the helper.
 	 */
 	@Override
@@ -97,6 +113,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	
 	}
 	
+	public Context getContext()
+	{
+		return c;
+	}
+	
 	/**
 	 * Inserts data into the database 
 	 * @param _price : Amount Spent at the pump
@@ -126,6 +147,227 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		} catch (SQLException e) {
 			Log.e(getClass().getSimpleName(), e.getMessage());
 		}
+	}
+	
+	
+	/**
+	 * Inserts Andy Sayler's statistics. This function is only used to show off some of the database functionality.
+	 * We did not have prices so those were randomly generated.
+	 * 
+	 * We are aware that this function is ridiculously large. It was generated at the last second just so we could have some
+	 * useful demo values.
+	 * 
+	 * @return void
+	 */
+	public void insertDefaults() {
+		
+			ContentValues values = null;
+			TestingTools priceGen = new TestingTools();
+			
+			try {
+				db.beginTransaction();
+				db.delete(VEHICLE_TABLE, null, null);				
+				db.setTransactionSuccessful();
+				db.endTransaction();
+				
+				db.beginTransaction();
+				values = new ContentValues();
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 12.81);
+				values.put(VEHICLE_COL_PREVODOMETER, 102890);
+				values.put(VEHICLE_COL_DATE, "01-13-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 11.18);
+				values.put(VEHICLE_COL_PREVODOMETER, 103156);
+				values.put(VEHICLE_COL_DATE, "01-28-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 8.24);
+				values.put(VEHICLE_COL_PREVODOMETER, 103377);
+				values.put(VEHICLE_COL_DATE, "02-02-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 6.48);
+				values.put(VEHICLE_COL_PREVODOMETER, 103556);
+				values.put(VEHICLE_COL_DATE, "02-03-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 8.79);
+				values.put(VEHICLE_COL_PREVODOMETER, 103783);
+				values.put(VEHICLE_COL_DATE, "02-04-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 11.06);
+				values.put(VEHICLE_COL_PREVODOMETER, 104070);
+				values.put(VEHICLE_COL_DATE, "02-05-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 10.03);
+				values.put(VEHICLE_COL_PREVODOMETER, 104334);
+				values.put(VEHICLE_COL_DATE, "02-05-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 2.68);
+				values.put(VEHICLE_COL_PREVODOMETER, 104456);
+				values.put(VEHICLE_COL_DATE, "02-10-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 10.18);
+				values.put(VEHICLE_COL_PREVODOMETER, 104638);
+				values.put(VEHICLE_COL_DATE, "02-16-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 5.29);
+				values.put(VEHICLE_COL_PREVODOMETER, 104771);
+				values.put(VEHICLE_COL_DATE, "02-18-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 3.89);
+				values.put(VEHICLE_COL_PREVODOMETER, 104881);
+				values.put(VEHICLE_COL_DATE, "02-19-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 4.38);
+				values.put(VEHICLE_COL_PREVODOMETER, 105000);
+				values.put(VEHICLE_COL_DATE, "02-19-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 10.58);
+				values.put(VEHICLE_COL_PREVODOMETER, 105280);
+				values.put(VEHICLE_COL_DATE, "02-22-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 8.37);
+				values.put(VEHICLE_COL_PREVODOMETER, 105687);
+				values.put(VEHICLE_COL_DATE, "02-24-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				
+				values.clear();
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 10.09);
+				values.put(VEHICLE_COL_PREVODOMETER, 105953);
+				values.put(VEHICLE_COL_DATE, "03-03-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 12.03);
+				values.put(VEHICLE_COL_PREVODOMETER, 106530);
+				values.put(VEHICLE_COL_DATE, "03-23-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 11.10);
+				values.put(VEHICLE_COL_PREVODOMETER, 106835);
+				values.put(VEHICLE_COL_DATE, "03-30-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 11.73);
+				values.put(VEHICLE_COL_PREVODOMETER, 107151);
+				values.put(VEHICLE_COL_DATE, "04-07-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 12.59);
+				values.put(VEHICLE_COL_PREVODOMETER, 107466);
+				values.put(VEHICLE_COL_DATE, "04-26-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 12.45);
+				values.put(VEHICLE_COL_PREVODOMETER, 107767);
+				values.put(VEHICLE_COL_DATE, "05-11-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 10.21);
+				values.put(VEHICLE_COL_PREVODOMETER, 108046);
+				values.put(VEHICLE_COL_DATE, "05-16-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 11.27);
+				values.put(VEHICLE_COL_PREVODOMETER, 108358);
+				values.put(VEHICLE_COL_DATE, "05-24-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 10.81);
+				values.put(VEHICLE_COL_PREVODOMETER, 108638);
+				values.put(VEHICLE_COL_DATE, "06-02-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 11.90);
+				values.put(VEHICLE_COL_PREVODOMETER, 108933);
+				values.put(VEHICLE_COL_DATE, "06-13-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 9.42);
+				values.put(VEHICLE_COL_PREVODOMETER, 109172);
+				values.put(VEHICLE_COL_DATE, "06-24-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 7.14);
+				values.put(VEHICLE_COL_PREVODOMETER, 109338);
+				values.put(VEHICLE_COL_DATE, "07-04-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				
+				values.put(VEHICLE_COL_REFILLPRICE, priceGen.randPrice());
+				values.put(VEHICLE_COL_REFILLAMOUNT, 10.28);
+				values.put(VEHICLE_COL_PREVODOMETER, 109563);
+				values.put(VEHICLE_COL_DATE, "07-22-2012 00:00:00");
+				db.insert(VEHICLE_TABLE, null, values);
+				values.clear();
+				db.setTransactionSuccessful();
+				db.endTransaction();
+			}catch (SQLException e) {
+				
+				Log.e(getClass().getName(), "Default insertion failed" + e.getMessage());
+			} catch (Exception e) {
+				Log.e(getClass().getName(), "Default insertion failed - Uncaught error");
+			}
 	}
 	
 	/**

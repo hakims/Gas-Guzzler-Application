@@ -32,8 +32,12 @@ public class MainActivity extends Activity {
     	super.onCreate(savedInstanceState);
     	//this.requestWindowFeature(Window.FEATURE_NO_TITLE);
     	setContentView(R.layout.activity_main);
-        
+    	
         database = new DatabaseHelper (getApplicationContext());
+        
+        ///The next line is for demo purposes only. Comment it out otherwise. 
+        //database.insertDefaults();
+        
         numRows = database.getNumRows();
         database.close();
         
@@ -73,7 +77,7 @@ public class MainActivity extends Activity {
             		//Intent myIntent = new Intent(view.getContext(), BrowseHistoryPage.class);
             		//startActivityForResult(myIntent, 0);
             		//startActivity(new Intent(MainActivity.this, BrowseHistoryPage.class));
-            		new AsyncCaller(MainActivity.this).execute();
+            		new AsyncCaller(MainActivity.this).execute(null,null,null);
             	}
             }
     });
