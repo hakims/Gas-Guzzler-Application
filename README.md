@@ -17,3 +17,5 @@ Taylor Wolfert
 
 Logo Credit:
 Alex Bing
+
+Special Thanks to Joans Gehring for his GraphView Library for Android. 
