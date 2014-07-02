@@ -35,5 +35,28 @@
     <string name="dollar_sign">$</string>
     <string name="gallons">Gallons</string>
     <string name="miles">Miles</string>
+    <string name="about_text">
+        Gas Guzzler helps you store information after every fillup 
+        at the pump. Gas Guzzler stores the price you paid, the amount
+        of gas purchased, and your odometer reading at the pump. 
+        Gas Guzzler stores this data and uses it to provide you 
+        helpful statistics about your refill habits. 
+    </string>
+    <string name="dev_by">Developed By:</string>
+    <string name="dev_name_ali">Ali Hakimi</string>
+    <string name="dev_name_lincoln">Lincoln Samelson</string>
+    <string name="dev_name_taylor">Taylor Wolfert</string>
+    <string name="logo_credit">Logo Credit:</string>
+    <string name="credit_name_alex">Alex Bing</string>
+    <string name="special_thanks">Special Thanks to:</string>
+    <string name="thanks_name_greg">Greg Dunaway</string>
+    <string name="bug_reporting_text">
+        If you encounter any defect, problem, or bug while using the 
+        Gas Guzzler application, please report the issue at our GutHub 
+        repository for us to fix. The following link will take you to our 
+        repository:
+    </string>
+    <string name="bug_reporting_link"><a href="https://github.com/hakims/Gas-Guzzler-Application/issues?state=open">GutHub Bug Tracking Repository</a></string>
+    
     
 </resources>

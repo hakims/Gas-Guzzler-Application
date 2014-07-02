@@ -2,7 +2,9 @@ package com.app.gasguzzler;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.Window;
+import android.widget.TextView;
 
 /**
  * @author Hakims
@@ -16,6 +18,8 @@ public class AboutGG extends Activity {
     	super.onCreate(savedInstanceState);
     	this.requestWindowFeature(Window.FEATURE_NO_TITLE);
     	setContentView(R.layout.about_gg);
+    	TextView t2 = (TextView) findViewById(R.id.bug_page_link);
+        t2.setMovementMethod(LinkMovementMethod.getInstance());
     	
     }
 	
