@@ -10,7 +10,7 @@
     <string name="next_button_custom">Keep Guzzling!</string>
 	<string name="back">Back</string>
 	<string name="history_button_custom">Guzzle History</string>
-	<string name="gas_volume_text">How much did you fill your tank today?</string>
+	<string name="gas_volume_text">How many gallons did you buy today?</string>
     <string name="gas_volume_entry">Gallons of gas</string>
     <string name="odometer_text">What is the reading on your odometer?</string>
 	<string name="odometer_entry">Mileage on odometer</string>
